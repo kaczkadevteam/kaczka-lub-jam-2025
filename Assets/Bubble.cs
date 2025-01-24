@@ -7,6 +7,7 @@ public class Bubble : MonoBehaviour
     [SerializeField] private Vector3 movementDirection;
     [SerializeField] private float maxSpeed;
     [SerializeField] private float currentSpeed;
+    [SerializeField] private float speedFractionBelowWhichToDisappear;
 
     void Start()
     {
@@ -16,9 +17,9 @@ public class Bubble : MonoBehaviour
 
     void FixedUpdate()
     {
-        transform.position += movementDirection * currentSpeed / 100;
-        currentSpeed -= maxSpeed / 100;
-        if (currentSpeed <= maxSpeed / 10) {
+        transform.position += movementDirection * currentSpeed * Time.deltaTime;
+        currentSpeed -= maxSpeed * Time.deltaTime;
+        if (currentSpeed <= speedFractionBelowWhichToDisappear * maxSpeed) {
             Destroy(gameObject);
         }
     }
