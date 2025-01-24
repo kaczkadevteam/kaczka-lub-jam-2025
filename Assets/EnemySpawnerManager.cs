@@ -9,6 +9,11 @@ public class EnemySpawnerManager : MonoBehaviour
 
     public void Start()
     {
-        Instantiate(enemyBaseList.First());
+        Invoke("SpawnEnemy", 1f);   
+    }
+    
+    void SpawnEnemy()
+    {
+        Instantiate(enemyBaseList.First(), spawnPoints.First().position, Quaternion.identity);
     }
 }
