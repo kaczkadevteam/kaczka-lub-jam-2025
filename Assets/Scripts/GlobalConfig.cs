@@ -20,7 +20,6 @@ public class GlobalConfig : MonoBehaviour
         }
     }
 
-    // Example configuration fields
     public float blowerOrbitingRadius = 10f;
     public float bubbleSpawnOffsetFraction = 0.4f;
 }
