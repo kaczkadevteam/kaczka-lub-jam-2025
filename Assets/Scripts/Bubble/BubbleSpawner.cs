@@ -19,8 +19,6 @@ public class BubbleSpawner : MonoBehaviour
         
         if (nextSpawn > spawnRate)
         {
-            // Get the base spawn point
-    
             // Spawn a bubble and reset the timer
             SpawnBubble();
             nextSpawn = 0;
@@ -37,7 +35,6 @@ public class BubbleSpawner : MonoBehaviour
         // Generate a random spawn point
         var spawnPoint = new Vector3(baseSpawnPoint.position.x  + bubbleSpawnOffsetX, baseSpawnPoint.position.y, baseSpawnPoint.position.z  + bubbleSpawnOffsetZ);
 
-        Debug.Log("Spawned a bubble @" + spawnPoint);
         // Spawn the bubble
         Instantiate(bubble, spawnPoint, Quaternion.identity, bubbleParent);
 

@@ -5,8 +5,6 @@ public class GlobalConfig : MonoBehaviour
     private static GlobalConfig _instance;
 
     public static GlobalConfig Instance => _instance;
-
-    public Transform blower;
     private void Awake()
     {
         if (_instance == null)
