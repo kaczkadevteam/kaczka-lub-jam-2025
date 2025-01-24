@@ -28,20 +28,14 @@ public class BubbleSpawner : MonoBehaviour
 
     void SpawnBubble()
     {
-        // Get random offset for the spawn point
         var bubbleSpawnOffsetX = Random.Range(-GlobalConfig.Instance.blowerOrbitingRadius * GlobalConfig.Instance.bubbleSpawnOffsetFraction, GlobalConfig.Instance.blowerOrbitingRadius * GlobalConfig.Instance.bubbleSpawnOffsetFraction);
         var bubbleSpawnOffsetZ = Random.Range(-GlobalConfig.Instance.blowerOrbitingRadius * GlobalConfig.Instance.bubbleSpawnOffsetFraction, GlobalConfig.Instance.blowerOrbitingRadius * GlobalConfig.Instance.bubbleSpawnOffsetFraction);
 
-        // Generate a random spawn point
         var spawnPoint = new Vector3(baseSpawnPoint.position.x  + bubbleSpawnOffsetX, baseSpawnPoint.position.y, baseSpawnPoint.position.z  + bubbleSpawnOffsetZ);
 
-        // Spawn the bubble
         Instantiate(bubble, spawnPoint, Quaternion.identity, bubbleParent);
+        bubble.GetComponent<Bubble>().blower = blower;
 
-        // TODO: Assign the blower to the bubble
-        // bubble.GetComponent<Bubble>().blower = blower;
-
-        // Increment the enemy spawned count
         enemySpawnedCount++;
     }
 }
