@@ -165,10 +165,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6214a5299ada56468c08429d7db1912, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyBaseList:
-  - {fileID: -7310446089387794555, guid: 34da479ab7fe1e842a4f80b34a409f95, type: 3}
-  - {fileID: 1094997915562642086, guid: ed1d0b1f2607f734da003d4988d43ef5, type: 3}
-  - {fileID: 4118637851665187101, guid: 8d68e2fb843e8bf498d7bf4c50ccbdb9, type: 3}
+  enemySOList:
+  - {fileID: 11400000, guid: 5a1ffc96be0ce6c41b9f659cbaed5ff7, type: 2}
+  - {fileID: 11400000, guid: 9d9863fdd431c7d4a93919713a02937d, type: 2}
+  - {fileID: 11400000, guid: 527cf49f347a1f246a4c760bd28ec3fe, type: 2}
   playerLocation: {fileID: 646919460}
   spawnPointRadius: 10
   spawnRate: 5
