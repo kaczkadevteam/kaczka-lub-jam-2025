@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blowerOrbitingRadius: 10
-  bubbleSpawnOffsetFraction: 0.4
+  bubbleSpawnOffsetFraction: 0.02
 --- !u!4 &172858253
 Transform:
   m_ObjectHideFlags: 0
@@ -724,8 +724,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 079bf8e0548513d4da1438da073765b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blowerSpawnerPrefab: {fileID: 0}
-  blowerSpawnerSpawnpoint: {fileID: 0}
+  blowerSpawnerPrefab: {fileID: 728548251}
+  blowerSpawnerSpawnpoint: {fileID: 863019727}
   blowerSpawnerSpawnOffset: 0
   blowerUpgrades:
     bubbleSpawnRateInterval: 0.1
