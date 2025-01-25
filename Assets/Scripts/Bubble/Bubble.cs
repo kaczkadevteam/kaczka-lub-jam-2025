@@ -3,7 +3,6 @@ using Vector3 = UnityEngine.Vector3;
 
 public class Bubble : MonoBehaviour
 {
-    [SerializeField]
     public Transform blower;
 
     [SerializeField]
@@ -62,7 +61,7 @@ public class Bubble : MonoBehaviour
 
     void FixedUpdate()
     {
-        transform.position += movementDirection * currentSpeed * Time.deltaTime;
+        transform.position += currentSpeed * Time.deltaTime * movementDirection;
         currentSpeed -= speedLossMultiplier * maxSpeed * Time.deltaTime;
         if (currentSpeed <= speedFractionBelowWhichToDisappear * maxSpeed)
         {
