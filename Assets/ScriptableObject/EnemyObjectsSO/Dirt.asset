@@ -15,7 +15,8 @@ MonoBehaviour:
   enemyName: Dirt
   enemyPrefab: {fileID: 6050092799709282794, guid: ed1d0b1f2607f734da003d4988d43ef5, type: 3}
   moveSpeed: 3
-  damageToPlayer: 0
-  dropChance: 0
+  damageToPlayer: 1
+  dropChance: 0.01
   health: 1
   spawnWeight: 10
+  size: 1

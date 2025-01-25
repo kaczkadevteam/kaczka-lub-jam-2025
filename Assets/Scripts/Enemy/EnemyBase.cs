@@ -60,4 +60,11 @@ public class EnemyBase : MonoBehaviour
 	private void DropUpgrade()
 	{
 	}
+	
+	public void InitStats(EnemySO enemySO)
+	{
+		this.enemySO = enemySO;
+		currentHealth = enemySO.health;
+		transform.localScale = new Vector3(enemySO.size, enemySO.size, enemySO.size);
+	}
 }

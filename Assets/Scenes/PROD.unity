@@ -882,6 +882,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: '@GameManager'
       objectReference: {fileID: 0}
+    - target: {fileID: 6445149875841405620, guid: 6fdb7acc86cccb94b9a390069cd4a0e1, type: 3}
+      propertyPath: maxBabyHealth
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 7266258026638542431, guid: 6fdb7acc86cccb94b9a390069cd4a0e1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1169,7 +1173,15 @@ PrefabInstance:
       value: UI
       objectReference: {fileID: 0}
     - target: {fileID: 7159841140871933659, guid: 7e1d970b48a4c854aab6ecb0a5c231cc, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7159841140871933659, guid: 7e1d970b48a4c854aab6ecb0a5c231cc, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7159841140871933659, guid: 7e1d970b48a4c854aab6ecb0a5c231cc, type: 3}
+      propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
