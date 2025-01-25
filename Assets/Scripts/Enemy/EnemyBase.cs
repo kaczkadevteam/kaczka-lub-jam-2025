@@ -45,7 +45,8 @@ public class EnemyBase : MonoBehaviour
 	public void SelfDestruct()
 	{
 		//todo: chance for droping upgrade for player to pick up
-		Destroy(gameObject);
+		gameObject.SetActive(false);
+		// Destroy(gameObject);
 	}
 	
 	//todo

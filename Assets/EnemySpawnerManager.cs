@@ -1,6 +1,9 @@
+using System;
 using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
+using NUnit.Framework;
+using Random = UnityEngine.Random;
 
 
 public class EnemySpawnerManager : MonoBehaviour
@@ -10,6 +13,14 @@ public class EnemySpawnerManager : MonoBehaviour
     [SerializeField] private float spawnPointRadius = 10f;
     [Header("1 = 1 enemy/s 2 = 2 enemies/s etc...")]
     [SerializeField] private float spawnRate = 1f;
+
+    [Serializable] 
+    public class EnemyTuple
+    {
+        public EnemySO enemySO;
+        public List<GameObject> enemyList;
+    }
+    public List<EnemyTuple> enemyList;
     
     private void SpawnEnemy()
     {
@@ -42,13 +53,33 @@ public class EnemySpawnerManager : MonoBehaviour
             selectedEnemy = enemySOList[0];
         }
         
+        
+        var enemyTuple = enemyList.Find(x => x.enemySO == selectedEnemy);
         Vector3 randomSpawnPoint = GetRandomSpawnPoint();
-        GameObject enemyGo = Instantiate(selectedEnemy.enemyPrefab, randomSpawnPoint, Quaternion.identity);
+        GameObject gameObject = ReuseEnemy(enemyTuple?.enemyList);
+        if(gameObject != null)
+        {
+            gameObject.transform.position = randomSpawnPoint;
+            gameObject.SetActive(true);
+            return;
+        }
+        
+        GameObject enemyGo =  Instantiate(selectedEnemy.enemyPrefab, randomSpawnPoint, Quaternion.identity);
+        if(enemyTuple == null)
+        {
+            enemyList.Add(new EnemyTuple {enemySO = selectedEnemy, enemyList = new List<GameObject> {enemyGo}});
+        }
         
         EnemyBase enemyBase = enemyGo.GetComponent<EnemyBase>();
+        
         if (enemyBase != null)
         {
             enemyBase.SetPlayerLocation(playerLocation);
+        }
+        
+        if (enemyTuple != null)
+        {
+            enemyTuple.enemyList.Add(enemyGo);
         }
     }
 
@@ -71,5 +102,19 @@ public class EnemySpawnerManager : MonoBehaviour
         SpawnEnemy();
         yield return new WaitForSeconds(1f/spawnRate);
         StartCoroutine(SpawnEnemyCoroutine());
+    }
+
+    private GameObject ReuseEnemy(List<GameObject> enemyList)
+    {
+        foreach (GameObject enemy in enemyList)
+        {
+            if (!enemy.activeInHierarchy)
+            {
+                Debug.Log($"Reusing enemy {enemy.name}");
+                return enemy;
+            }
+        }
+
+        return null;
     }
 }
