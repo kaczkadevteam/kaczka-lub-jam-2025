@@ -13,6 +13,11 @@ public class EnemyBase : MonoBehaviour
 		playerLocation = GameObject.Find("Player").transform;
 	}
 
+	private void OnEnable()
+	{
+		transform.rotation = Quaternion.identity;
+	}
+
 	void Update()
 	{
 		EnemyMove();
@@ -45,7 +50,8 @@ public class EnemyBase : MonoBehaviour
 	public void SelfDestruct()
 	{
 		//todo: chance for droping upgrade for player to pick up
-		Destroy(gameObject);
+		gameObject.SetActive(false);
+		// Destroy(gameObject);
 	}
 	
 	//todo
