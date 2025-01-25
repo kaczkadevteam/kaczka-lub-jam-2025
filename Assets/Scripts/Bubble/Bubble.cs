@@ -23,20 +23,33 @@ public class Bubble : MonoBehaviour
 
     void InitBubbleUpgrades()
     {
-        InitBubbleSpeedUpgrade();
+        var bubbleUpgradeManager = BubbleUpgradeManager.Instance;
+
+        InitBubbleSpeedUpgrade(bubbleUpgradeManager);
+        InitBubbleSizeUpgrade(bubbleUpgradeManager);
     }
 
-    void InitBubbleSpeedUpgrade()
+    void InitBubbleSpeedUpgrade(BubbleUpgradeManager bubbleUpgradeManager)
     {
-        var bubbleUpgradeManager = GameObject
-            .Find("BubbleUpgradeManager")
-            .GetComponent<BubbleUpgradeManager>();
-
         var bubbleSpeedUpgrade = bubbleUpgradeManager.bubbleSpeedUpgrade;
         var bubbleSpeedUpgradeModifierValue = bubbleSpeedUpgrade.GetUpgradeValue();
         Debug.Log(bubbleSpeedUpgrade.GetUpgradeValue());
 
         maxSpeed += bubbleSpeedUpgradeModifierValue;
+    }
+
+    void InitBubbleSizeUpgrade(BubbleUpgradeManager bubbleUpgradeManager)
+    {
+        var bubbleSizeUpgrade = bubbleUpgradeManager.bubbleSizeUpgrade;
+        var bubbleSizeUpgradeModifierValue = bubbleSizeUpgrade.GetUpgradeValue();
+        Debug.Log(bubbleSizeUpgrade.GetUpgradeValue());
+
+        // Increase the size of the bubble by increasing the scale of the bubble
+        transform.localScale += new Vector3(
+            bubbleSizeUpgradeModifierValue,
+            bubbleSizeUpgradeModifierValue,
+            bubbleSizeUpgradeModifierValue
+        );
     }
 
     void Start()

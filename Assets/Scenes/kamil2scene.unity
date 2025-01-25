@@ -217,6 +217,54 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &306324727
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 306324728}
+  - component: {fileID: 306324729}
+  m_Layer: 0
+  m_Name: BubbleSizeUpgrade
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &306324728
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 306324727}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1198061188}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &306324729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 306324727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 065a965bc70cd4b8bb4f05eb7112fbc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgradeName: Bubble size
+  prefab: {fileID: 218198226191090993, guid: ba1f7a96716184e27bbd2d563a921a78, type: 3}
+  baseUpgradeValue: 10
+  level: 5
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -831,7 +879,7 @@ GameObject:
   - component: {fileID: 1198061188}
   - component: {fileID: 1198061187}
   m_Layer: 0
-  m_Name: BubbleUpgradeManager
+  m_Name: '@BubbleUpgradeManager'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -850,6 +898,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bubbleSpeedUpgrade: {fileID: 1636232874}
+  bubbleSizeUpgrade: {fileID: 0}
 --- !u!4 &1198061188
 Transform:
   m_ObjectHideFlags: 0
@@ -864,6 +913,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1636232876}
+  - {fileID: 306324728}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1434183464 stripped
@@ -979,7 +1029,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 065a965bc70cd4b8bb4f05eb7112fbc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upgradeName: Bubble Speed
+  upgradeName: Bubble speed
   prefab: {fileID: 218198226191090993, guid: 6bf3ea52e956748919b68c627238b2df, type: 3}
   baseUpgradeValue: 1
   level: 0
