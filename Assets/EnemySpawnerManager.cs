@@ -63,6 +63,7 @@ public class EnemySpawnerManager : MonoBehaviour
         if(gameObject != null)
         {
             SetupEnemy(spawnPoint, gameObject);
+            return;
         }
         
         GameObject enemyGo =  Instantiate(selectedEnemy.enemyPrefab, spawnPoint, Quaternion.identity);

@@ -23,10 +23,9 @@ public class Bubble : MonoBehaviour
     private float speedLossMultiplier;
     private const float minSpeedLoss = 0.01f;
     [SerializeField] private CapsuleCollider capsuleCollider;
-    [SerializeField] private Transform bubbleMeshTransform;
-    [SerializeField] private MeshRenderer bubbleMeshRenderer;
+    [SerializeField] private GameObject bubbleVisualsBeforeCaught;
+    [SerializeField] private GameObject bubbleVisualsAfterCaught;
     [SerializeField] private List<EnemyBase> enemiesCaught;
-    private Transform enemyParent;
 
     void InitBubbleUpgrades()
     {
@@ -101,9 +100,10 @@ public class Bubble : MonoBehaviour
     public void TryCaptureEnemy(EnemyBase enemy)
     {
         if (enemiesCaught.Count > 0) return;
+        
         enemiesCaught.Add(enemy);
-//        bubbleMeshTransform.localScale = new Vector3(1+enemiesCaught.Count, 1+enemiesCaught.Count, 1+enemiesCaught.Count);
-        bubbleMeshTransform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
+        bubbleVisualsBeforeCaught.SetActive(false);
+        bubbleVisualsAfterCaught.SetActive(true);
         enemy.transform.SetParent(transform);
         enemy.transform.localPosition = new Vector3(0, 0, 0);
         enemy.capsuleCollider.enabled = false;
