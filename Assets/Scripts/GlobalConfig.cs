@@ -25,7 +25,6 @@ public class GlobalConfig : MonoBehaviour
     [Header ("Enemy spawning")]
     public float enemySpawnRateGrowth = 0.05f;
     [Header("Lose time slow")]
-    public float timeScaleValueToStopCoroutine = 0.001f;
-    public float dividerOfTimeScaleOnLose = 2f;
-    public float secondsBetweenTimeScaleDivision = 0.25f;
+    public float slowMotionDurationInSeconds = 1f;
+    public AnimationCurve slowMotionCurve;
 }

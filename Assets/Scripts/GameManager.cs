@@ -40,9 +40,13 @@ public class GameManager : MonoBehaviour
     private string deathReasonText = string.Empty;
     public string DeathReasonText => deathReasonText;
 
+    private bool isGameLost = false;
+
+    public float movementSlowMotionScale = 1f;
+
     public void DecreaseHealth(EnemySO enemyScriptable)
     {
-        babyHealth--;
+        babyHealth -= (int)enemyScriptable.damageToPlayer;
 
         if(!damageSourcesDictionary.TryAdd(enemyScriptable.enemyName, 1))
         {
@@ -55,9 +59,16 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    [ContextMenu("Lose game")]
     private void LoseGame()
     {
-        var enemyTypeThatDealtMostDamage = damageSourcesDictionary.OrderByDescending(smth => smth.Value).First().Key;
+        if (isGameLost)
+        {
+            return;
+        }
+        isGameLost = true;
+
+        var enemyTypeThatDealtMostDamage = damageSourcesDictionary.OrderByDescending(smth => smth.Value).FirstOrDefault().Key;
 
         switch (enemyTypeThatDealtMostDamage)
         {
@@ -77,12 +88,15 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator SlowGameOnLose()
     {
-        while (Time.timeScale > GlobalConfig.Instance.timeScaleValueToStopCoroutine)
+        var timeLeftToSlowmotionEnd = GlobalConfig.Instance.slowMotionDurationInSeconds;
+        while (timeLeftToSlowmotionEnd > 0)
         {
-            Time.timeScale /= 2;
-            yield return new WaitForSeconds(GlobalConfig.Instance.secondsBetweenTimeScaleDivision);
+            timeLeftToSlowmotionEnd -= Time.unscaledDeltaTime;
+            movementSlowMotionScale = Mathf.Max(0,GlobalConfig.Instance.slowMotionCurve.Evaluate(timeLeftToSlowmotionEnd/ GlobalConfig.Instance.slowMotionDurationInSeconds));
+
+            yield return new WaitForEndOfFrame();
         }
 
-        Time.timeScale = 0;
+        movementSlowMotionScale = 0;
     }
 }
