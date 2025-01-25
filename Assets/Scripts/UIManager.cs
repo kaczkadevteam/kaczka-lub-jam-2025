@@ -61,11 +61,11 @@ public class UIManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow) || Gamepad.current?.leftStick.ReadValue()[1] < 0)
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow) || Gamepad.current?.leftStick.ReadValue()[1] > 0.1)
         {
             CloseMenu();
         }
-        if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow) || Gamepad.current?.leftStick.ReadValue()[1] > 0)
+        if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow) || Gamepad.current?.leftStick.ReadValue()[1] < -0.1)
         {
             OpenMenu();
         }
