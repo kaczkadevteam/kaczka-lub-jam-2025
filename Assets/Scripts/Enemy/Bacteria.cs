@@ -10,7 +10,7 @@ public class Bacteria : EnemyBase
     {
         while (true)
         {
-            yield return new WaitForSeconds(10f);
+            yield return new WaitForSeconds(13f);
             Vector3 randomSpawnPointNearby = GetRandomSpawnPointNearby();
             EnemySpawnerManager.Instance.SpawnEnemy(rootObject.transform.position + randomSpawnPointNearby, enemySO);
         }
@@ -22,7 +22,7 @@ public class Bacteria : EnemyBase
         return randomSpawnPointNearby;
     }
 
-    void Start()
+    new void Start()
     {
         base.Start();
         rootObject = transform.gameObject;

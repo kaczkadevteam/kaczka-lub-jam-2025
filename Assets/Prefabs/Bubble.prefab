@@ -137,7 +137,11 @@ MonoBehaviour:
   maxSpeed: 40
   currentSpeed: 0
   speedFractionBelowWhichToDisappear: 0.1
-  baseSpeedLossMultiplier: 3.5
+  baseSpeedLossMultiplier: 2
+  capsuleCollider: {fileID: 6925386128684129755}
+  bubbleMeshTransform: {fileID: 6161229056899721230}
+  bubbleMeshRenderer: {fileID: 5408052222394007904}
+  enemiesCaught: []
 --- !u!136 &6925386128684129755
 CapsuleCollider:
   m_ObjectHideFlags: 0

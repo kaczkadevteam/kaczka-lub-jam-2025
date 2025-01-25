@@ -1050,6 +1050,37 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1734364106}
   m_SourcePrefab: {fileID: 100100000, guid: 1bce02dc854add84db75ac0ce50c4fb0, type: 3}
+--- !u!1 &1556065672
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1556065673}
+  m_Layer: 0
+  m_Name: EnemiesParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1556065673
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1556065672}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1669669357
 GameObject:
   m_ObjectHideFlags: 0
@@ -1086,8 +1117,14 @@ MonoBehaviour:
   playerLocation: {fileID: 409997940}
   spawnPointRadius: 35
   spawnRate: 1.5
-  enemyList: []
-  enemiesParent: {fileID: 0}
+  enemyList:
+  - enemySO: {fileID: 11400000, guid: 5a1ffc96be0ce6c41b9f659cbaed5ff7, type: 2}
+    enemyList: []
+  - enemySO: {fileID: 11400000, guid: 527cf49f347a1f246a4c760bd28ec3fe, type: 2}
+    enemyList: []
+  - enemySO: {fileID: 11400000, guid: 9d9863fdd431c7d4a93919713a02937d, type: 2}
+    enemyList: []
+  enemiesParent: {fileID: 1556065672}
 --- !u!4 &1669669359
 Transform:
   m_ObjectHideFlags: 0
@@ -1315,3 +1352,4 @@ SceneRoots:
   - {fileID: 1669669359}
   - {fileID: 152997976}
   - {fileID: 168008825}
+  - {fileID: 1556065673}
