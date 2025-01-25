@@ -13,16 +13,26 @@ public class BubbleSpawner : MonoBehaviour
 
     private float timeSinceLastSpawn = 0.0f;
 
+    private float GetTimeToSpawn()
+    {
+        float baseInterval = GlobalConfig.Instance.baseTimeSpawnInterval;
+        float upgradeValue =
+            BubbleSpawnerUpgradeManager.Instance.bubbleSpawnerSpawnSpeedUpgrade.GetUpgradeValue();
+
+        // Apply diminishing returns using a logarithmic function
+        float diminishingReturnFactor = Mathf.Log(1 + upgradeValue, 2); // Log base 2 for diminishing returns
+        float calculatedTime = baseInterval - diminishingReturnFactor;
+
+        return Mathf.Max(calculatedTime, GlobalConfig.Instance.minTimeSpawnInterval);
+    }
+
     // Update is called once per frame
     void Update()
     {
         // Check if it is time to spawn a bubble
         timeSinceLastSpawn = Time.deltaTime + timeSinceLastSpawn;
 
-        if (
-            timeSinceLastSpawn
-            > BlowerUpgradeManager.Instance.blowerUpgrades.BubbleSpawnRateInterval
-        )
+        if (timeSinceLastSpawn > GetTimeToSpawn())
         {
             // Spawn a bubble and reset the timer
             SpawnBubble();

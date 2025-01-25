@@ -198,8 +198,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blowerSpawnerPrefab: {fileID: 3699553074746108694, guid: 57f5ab68ee5184ab385269b9d0f0a54b, type: 3}
-  baseBubbleSpawnerSpawnPoint: {fileID: 728548253}
+  baseBubbleSpawnerSpawnPoint: {fileID: 233902395}
+  bubbleParent: {fileID: 2024602036}
+  blower: {fileID: 1434183464}
   bubbleSpawnerCountUpgrade: {fileID: 198831766}
+  bubbleSpawnerSpawnSpeedUpgrade: {fileID: 2012198836}
 --- !u!4 &42892625
 Transform:
   m_ObjectHideFlags: 0
@@ -214,6 +217,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 198831767}
+  - {fileID: 2012198837}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &152997974
@@ -352,6 +356,8 @@ MonoBehaviour:
   timeScaleValueToStopCoroutine: 0.001
   dividerOfTimeScaleOnLose: 2
   secondsBetweenTimeScaleDivision: 0.25
+  minTimeSpawnInterval: 0.05
+  baseTimeSpawnInterval: 0.5
 --- !u!4 &172858253
 Transform:
   m_ObjectHideFlags: 0
@@ -399,8 +405,8 @@ MonoBehaviour:
   upgradeName: Bubbler amount
   prefab: {fileID: 218198226191090993, guid: deea80276809e40b4b2a62ceb739c725, type: 3}
   baseUpgradeValue: 1
-  level: 0
-  maxLevel: 10
+  level: 1
+  maxLevel: 5
   maxBubbleSpawnerCount: 5
 --- !u!4 &198831767
 Transform:
@@ -416,6 +422,38 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 42892625}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &233902394
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 233902395}
+  m_Layer: 0
+  m_Name: _dynamicBubbleSpawners
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &233902395
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 233902394}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 728548253}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &330585543
 GameObject:
@@ -1273,6 +1311,55 @@ Transform:
   m_Children: []
   m_Father: {fileID: 168008825}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2012198835
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2012198837}
+  - component: {fileID: 2012198836}
+  m_Layer: 0
+  m_Name: BubbleSpawnerSpawnRateUpgrade
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2012198836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012198835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72b89b41eee25483a907adaa38c8863d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgradeName: Bubble spawn rate
+  prefab: {fileID: 218198226191090993, guid: 3c9e6d7e9ff7c45ff9b33a9062979b89, type: 3}
+  baseUpgradeValue: 0.05
+  level: 1
+  maxLevel: 10
+--- !u!4 &2012198837
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012198835}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 42892625}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2024602035
 GameObject:
   m_ObjectHideFlags: 0
@@ -1371,7 +1458,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 233902395}
     m_Modifications:
     - target: {fileID: 2975199746156073660, guid: 57f5ab68ee5184ab385269b9d0f0a54b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1391,15 +1478,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2975199746156073660, guid: 57f5ab68ee5184ab385269b9d0f0a54b, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2975199746156073660, guid: 57f5ab68ee5184ab385269b9d0f0a54b, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2975199746156073660, guid: 57f5ab68ee5184ab385269b9d0f0a54b, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2975199746156073660, guid: 57f5ab68ee5184ab385269b9d0f0a54b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1440,7 +1527,6 @@ SceneRoots:
   - {fileID: 657110206}
   - {fileID: 2211781911986750681}
   - {fileID: 172858253}
-  - {fileID: 7762999257325440540}
   - {fileID: 863019727}
   - {fileID: 2024602036}
   - {fileID: 1473929194}
@@ -1448,3 +1534,4 @@ SceneRoots:
   - {fileID: 152997976}
   - {fileID: 168008825}
   - {fileID: 42892625}
+  - {fileID: 233902395}

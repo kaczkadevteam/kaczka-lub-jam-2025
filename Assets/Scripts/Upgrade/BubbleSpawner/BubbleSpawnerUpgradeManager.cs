@@ -21,6 +21,9 @@ public class BubbleSpawnerUpgradeManager : MonoBehaviour
 
     public BubbleSpawnerCountUpgrade bubbleSpawnerCountUpgrade;
 
+
+    public BubbleSpawnerSpawnRateUpgrade bubbleSpawnerSpawnSpeedUpgrade;
+
     private void Awake()
     {
         if (_instance == null)
