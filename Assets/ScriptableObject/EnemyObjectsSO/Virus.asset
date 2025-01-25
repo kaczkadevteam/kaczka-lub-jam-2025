@@ -19,4 +19,4 @@ MonoBehaviour:
   dropChance: 0.02
   health: 1
   spawnWeight: 5
-  size: 10
+  size: 1
