@@ -152,6 +152,7 @@ MonoBehaviour:
   prefab: {fileID: 218198226191090993, guid: ba1f7a96716184e27bbd2d563a921a78, type: 3}
   baseUpgradeValue: 0.1
   level: 0
+  maxLevel: 10
 --- !u!4 &11603580
 Transform:
   m_ObjectHideFlags: 0
@@ -196,12 +197,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 079bf8e0548513d4da1438da073765b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blowerSpawnerPrefab: {fileID: 728548251}
-  blowerSpawnerSpawnpoint: {fileID: 1734364109}
-  blowerSpawnerSpawnOffset: 0
-  blowerUpgrades:
-    bubbleSpawnRateInterval: 0.5
-    bubbleSpawnerCount: 1
 --- !u!4 &152997976
 Transform:
   m_ObjectHideFlags: 0
@@ -404,6 +399,56 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!1 &366107514
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 366107516}
+  - component: {fileID: 366107515}
+  m_Layer: 0
+  m_Name: BubbleSpawnerCountUpgrade
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &366107515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 366107514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3007953fc28f450ebea918ce3c64b85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgradeName: Bubbler amount
+  prefab: {fileID: 218198226191090993, guid: deea80276809e40b4b2a62ceb739c725, type: 3}
+  baseUpgradeValue: 1
+  level: 1
+  maxLevel: 5
+  maxBubbleSpawnerCount: 5
+--- !u!4 &366107516
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 366107514}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 909525108}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &409997939
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -603,6 +648,60 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 1
+--- !u!4 &446726048 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2975199746156073660, guid: 57f5ab68ee5184ab385269b9d0f0a54b, type: 3}
+  m_PrefabInstance: {fileID: 1406140095}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &584101283
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 584101285}
+  - component: {fileID: 584101284}
+  m_Layer: 0
+  m_Name: BubbleSpawnerSpawnRateUpgrade
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &584101284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 584101283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72b89b41eee25483a907adaa38c8863d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgradeName: Bubble spawn rate
+  prefab: {fileID: 218198226191090993, guid: 3c9e6d7e9ff7c45ff9b33a9062979b89, type: 3}
+  baseUpgradeValue: 0.05
+  level: 1
+  maxLevel: 10
+--- !u!4 &584101285
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 584101283}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 909525108}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &657110202
 GameObject:
   m_ObjectHideFlags: 0
@@ -712,53 +811,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &728548251
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 728548253}
-  - component: {fileID: 728548252}
-  m_Layer: 0
-  m_Name: BubbleSpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &728548252
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 728548251}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6dab63124c1e446ea80ffb9f610047d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  blower: {fileID: 1434183464}
-  bubbleParent: {fileID: 2024602036}
-  bubblePrefab: {fileID: 7809217158678234848, guid: 82f0a01c697808e4f9bc9c48a51aa956, type: 3}
---- !u!4 &728548253
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 728548251}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -839,6 +891,58 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &909525106
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 909525108}
+  - component: {fileID: 909525107}
+  m_Layer: 0
+  m_Name: '@BubbleSpawnerUpgradeManager'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &909525107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 909525106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0eba82fc91c284fc28daefc7c4363bd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blowerSpawnerPrefab: {fileID: 3699553074746108694, guid: 57f5ab68ee5184ab385269b9d0f0a54b, type: 3}
+  baseBubbleSpawnerSpawnPoint: {fileID: 1127938335}
+  bubbleParent: {fileID: 2024602036}
+  blower: {fileID: 1434183464}
+  bubbleSpawnerCountUpgrade: {fileID: 366107515}
+  bubbleSpawnerSpawnSpeedUpgrade: {fileID: 584101284}
+--- !u!4 &909525108
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 909525106}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 366107516}
+  - {fileID: 584101285}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1094224858
 GameObject:
   m_ObjectHideFlags: 0
@@ -869,6 +973,38 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1669669359}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1127938334
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1127938335}
+  m_Layer: 0
+  m_Name: _dynamicBubbleSpawners
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1127938335
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1127938334}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 446726048}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1231781563
 PrefabInstance:
@@ -964,6 +1100,7 @@ MonoBehaviour:
   prefab: {fileID: 218198226191090993, guid: 5d2ee91621fc74376856b9733733caa8, type: 3}
   baseUpgradeValue: 0.25
   level: 0
+  maxLevel: 10
 --- !u!4 &1245026544
 Transform:
   m_ObjectHideFlags: 0
@@ -1036,6 +1173,71 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 440d6fe71daef7e4aac7cf84e525b694, type: 3}
+--- !u!1001 &1406140095
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1127938335}
+    m_Modifications:
+    - target: {fileID: 2975199746156073660, guid: 57f5ab68ee5184ab385269b9d0f0a54b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2975199746156073660, guid: 57f5ab68ee5184ab385269b9d0f0a54b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2975199746156073660, guid: 57f5ab68ee5184ab385269b9d0f0a54b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2975199746156073660, guid: 57f5ab68ee5184ab385269b9d0f0a54b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2975199746156073660, guid: 57f5ab68ee5184ab385269b9d0f0a54b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2975199746156073660, guid: 57f5ab68ee5184ab385269b9d0f0a54b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2975199746156073660, guid: 57f5ab68ee5184ab385269b9d0f0a54b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2975199746156073660, guid: 57f5ab68ee5184ab385269b9d0f0a54b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2975199746156073660, guid: 57f5ab68ee5184ab385269b9d0f0a54b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2975199746156073660, guid: 57f5ab68ee5184ab385269b9d0f0a54b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3699553074746108694, guid: 57f5ab68ee5184ab385269b9d0f0a54b, type: 3}
+      propertyPath: m_Name
+      value: BubbleSpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 7906049160880833001, guid: 57f5ab68ee5184ab385269b9d0f0a54b, type: 3}
+      propertyPath: blower
+      value: 
+      objectReference: {fileID: 1434183464}
+    - target: {fileID: 7906049160880833001, guid: 57f5ab68ee5184ab385269b9d0f0a54b, type: 3}
+      propertyPath: bubbleParent
+      value: 
+      objectReference: {fileID: 2024602036}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 57f5ab68ee5184ab385269b9d0f0a54b, type: 3}
 --- !u!4 &1434183464 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4908101868553758339, guid: c4c055dcefe1c5c49a027c8a882b90c4, type: 3}
@@ -1367,6 +1569,7 @@ MonoBehaviour:
   prefab: {fileID: 218198226191090993, guid: 6bf3ea52e956748919b68c627238b2df, type: 3}
   baseUpgradeValue: 1
   level: 0
+  maxLevel: 10
 --- !u!4 &1851463920
 Transform:
   m_ObjectHideFlags: 0
@@ -1483,7 +1686,6 @@ SceneRoots:
   - {fileID: 832575519}
   - {fileID: 657110206}
   - {fileID: 2211781911986750681}
-  - {fileID: 728548253}
   - {fileID: 863019727}
   - {fileID: 2024602036}
   - {fileID: 1473929194}
@@ -1494,3 +1696,5 @@ SceneRoots:
   - {fileID: 1363731747}
   - {fileID: 1526029787}
   - {fileID: 1231781563}
+  - {fileID: 909525108}
+  - {fileID: 1127938335}
