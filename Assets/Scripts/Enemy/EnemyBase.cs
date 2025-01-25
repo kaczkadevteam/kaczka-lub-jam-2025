@@ -38,14 +38,14 @@ public class EnemyBase : MonoBehaviour
 	
 	public void OnCollisionEnter(Collision collision)
 	{
-		if(collision.gameObject.tag == "Player")
+		if (collision.gameObject.TryGetComponent<Bubble>(out var bubble)) {
+			bubble.TryCaptureEnemy(this);
+		}
+		
+		if(transform.parent == EnemySpawnerManager.Instance.enemiesParent.transform && collision.gameObject.tag == "Player")
 		{
 			SelfDestruct();
 			GameManager.Instance.DecreaseHealth(enemySO);
-		}
-
-		if (collision.gameObject.TryGetComponent<Bubble>(out var bubble)) {
-			bubble.TryCaptureEnemy(this);
 		}
 	}
 
