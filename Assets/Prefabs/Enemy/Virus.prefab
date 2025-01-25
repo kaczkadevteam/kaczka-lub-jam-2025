@@ -100,4 +100,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemySO: {fileID: 11400000, guid: 9d9863fdd431c7d4a93919713a02937d, type: 2}
   capsuleCollider: {fileID: 5175931510046914497}
-  canMove: 1
+  chanceToMutate: 0.1

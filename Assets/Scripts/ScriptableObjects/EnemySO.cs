@@ -11,5 +11,6 @@ public class EnemySO : ScriptableObject
     public int health =1;
     [Header("Rarity / Spawn Weight (higher means more frequent)")]
     public float spawnWeight = 1f;
+    public float size = 1f;
 
 }
