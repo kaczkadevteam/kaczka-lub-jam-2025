@@ -35,7 +35,6 @@ public class Bubble : MonoBehaviour
     {
         var bubbleSpeedUpgrade = bubbleUpgradeManager.bubbleSpeedUpgrade;
         var bubbleSpeedUpgradeModifierValue = bubbleSpeedUpgrade.GetUpgradeValue();
-        Debug.Log(bubbleSpeedUpgrade.GetUpgradeValue());
 
         maxSpeed += bubbleSpeedUpgradeModifierValue;
     }
@@ -44,7 +43,6 @@ public class Bubble : MonoBehaviour
     {
         var bubbleSizeUpgrade = bubbleUpgradeManager.bubbleSizeUpgrade;
         var bubbleSizeUpgradeModifierValue = bubbleSizeUpgrade.GetUpgradeValue();
-        Debug.Log(bubbleSizeUpgrade.GetUpgradeValue());
 
         // Increase the size of the bubble by increasing the scale of the bubble
         transform.localScale += new Vector3(
