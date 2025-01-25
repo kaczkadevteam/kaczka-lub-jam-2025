@@ -24,4 +24,8 @@ public class GlobalConfig : MonoBehaviour
     public float volcanoSizeFraction = 1f;
     [Header ("Enemy spawning")]
     public float enemySpawnRateGrowth = 0.05f;
+    [Header("Lose time slow")]
+    public float timeScaleValueToStopCoroutine = 0.001f;
+    public float dividerOfTimeScaleOnLose = 2f;
+    public float secondsBetweenTimeScaleDivision = 0.25f;
 }

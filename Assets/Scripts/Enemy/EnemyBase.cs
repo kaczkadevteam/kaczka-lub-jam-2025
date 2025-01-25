@@ -39,7 +39,7 @@ public class EnemyBase : MonoBehaviour
 		if(collision.gameObject.tag == "Player")
 		{
 			SelfDestruct();
-			//todo: create event for player that will decrease player health
+			GameManager.Instance.DecreaseHealth(enemySO);
 		}
 
 		if (collision.gameObject.tag == "Bubble") {
