@@ -6,7 +6,6 @@ public class BubbleSpawner : MonoBehaviour
     [SerializeField] private Transform bubbleParent;
     [SerializeField] private GameObject bubblePrefab;
 
-    public int enemySpawnedCount = 0;
     private float timeSinceLastSpawn = 0.0f;
 
     // Update is called once per frame
@@ -15,7 +14,7 @@ public class BubbleSpawner : MonoBehaviour
         // Check if it is time to spawn a bubble
         timeSinceLastSpawn = Time.deltaTime + timeSinceLastSpawn;
         
-        if (timeSinceLastSpawn > UpgradesManager.Instance.blowerUpgrades.SpawnRateInterval)
+        if (timeSinceLastSpawn > BlowerUpgradeManager.Instance.blowerUpgrades.BubbleSpawnRateInterval)
         {
             // Spawn a bubble and reset the timer
             SpawnBubble();
@@ -33,7 +32,5 @@ public class BubbleSpawner : MonoBehaviour
 
         Instantiate(bubblePrefab, spawnPoint, Quaternion.identity, bubbleParent);
         bubblePrefab.GetComponent<Bubble>().blower = blower;
-
-        enemySpawnedCount++;
     }
 }

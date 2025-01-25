@@ -6,8 +6,8 @@ using UnityEngine;
 public class BlowerUpgrades
 {
     [SerializeField]
-    private float spawnRateInterval = 0.1f;
-    public float SpawnRateInterval => spawnRateInterval;
+    private float bubbleSpawnRateInterval = 0.1f;
+    public float BubbleSpawnRateInterval => bubbleSpawnRateInterval;
 
     [SerializeField]
     private int bubbleSpawnerCount = 1;

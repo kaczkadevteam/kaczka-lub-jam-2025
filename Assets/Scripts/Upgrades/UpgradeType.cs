@@ -2,6 +2,6 @@ using UnityEngine;
 
 public enum UpgradeType
 {
-    AddSpawner,
-    IncreaseBubblesSpawnRate,
+    AddBubbleSpawner,
+    IncreaseBubbleSpawnRate,
 }
