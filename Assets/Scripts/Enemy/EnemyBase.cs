@@ -12,11 +12,13 @@ public class EnemyBase : MonoBehaviour
 	{
 		currentHealth = enemySO.health;
 		playerLocation = GameObject.Find("Player").transform;
+		InitStats(enemySO);
 	}
 
 	private void OnEnable()
 	{
 		transform.rotation = Quaternion.identity;
+		InitStats(enemySO);
 	}
 
 	void Update()
