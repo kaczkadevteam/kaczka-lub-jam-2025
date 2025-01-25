@@ -6,11 +6,11 @@ public class Virus : EnemyBase
 {
     [SerializeField] private float chanceToMutate = 0.01f;
     
-    private void Mutate()
+    private void TryMutate()
     {
         if(Random.value > chanceToMutate) return;
-        int mutation = Random.Range(0, 3);
-
+        int mutation = Random.Range(0, 4);
+            
         switch (mutation)
         {
             case 0:
@@ -23,37 +23,23 @@ public class Virus : EnemyBase
                 enemySO.spawnWeight += 0.1f;
                 break;
             case 3:
-                enemySO.size *= 10f;
+                enemySO.size *= 0.95f;
                 break;
             default:
                 break;
         }
+        InitStats(enemySO);
     }
     
     new void Start()
     {
         base.Start();
-        
-        if (Random.value < chanceToMutate)
-        {
-            Mutate();
-        }
-        
-        StartCoroutine(TryToMutate());
+        TryMutate();
     }
-
-    private void OnEnable()
+    
+    void OnEnable()
     {
-        InitStats(enemySO);
-    }
-
-    public IEnumerator TryToMutate()
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(2f);
-            Mutate();
-        }
+        TryMutate();
     }
     
     

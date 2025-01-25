@@ -16,7 +16,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 5707286550498949613, guid: 8d68e2fb843e8bf498d7bf4c50ccbdb9, type: 3}
   moveSpeed: 6.5
   damageToPlayer: 5
-  dropChance: 1.2
-  health: 3
+  dropChance: 0.02
+  health: 1
   spawnWeight: 4.3999996
   size: 1
