@@ -133,6 +133,11 @@ public class EnemySpawnerManager : MonoBehaviour
     {
         foreach (GameObject enemy in enemyList)
         {
+            if(enemy == null)
+            {
+                enemyList.Remove(enemy);
+                return null;
+            }
             if (!enemy.activeInHierarchy)
             {
                 return enemy;
