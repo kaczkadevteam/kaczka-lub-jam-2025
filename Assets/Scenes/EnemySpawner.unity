@@ -166,9 +166,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyBaseList:
-  - {fileID: 7796916653315170633, guid: 34da479ab7fe1e842a4f80b34a409f95, type: 3}
-  - {fileID: 6297232004181381000, guid: ed1d0b1f2607f734da003d4988d43ef5, type: 3}
-  - {fileID: 5451086856550315919, guid: 8d68e2fb843e8bf498d7bf4c50ccbdb9, type: 3}
+  - {fileID: -7310446089387794555, guid: 34da479ab7fe1e842a4f80b34a409f95, type: 3}
+  - {fileID: 1094997915562642086, guid: ed1d0b1f2607f734da003d4988d43ef5, type: 3}
+  - {fileID: 4118637851665187101, guid: 8d68e2fb843e8bf498d7bf4c50ccbdb9, type: 3}
   playerLocation: {fileID: 646919460}
   spawnPointRadius: 10
   spawnRate: 5

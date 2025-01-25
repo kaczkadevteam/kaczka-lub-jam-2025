@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Virus : MonoBehaviour
+public class Virus : EnemyBase
 {
     // todo
     private void Mutate()

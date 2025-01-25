@@ -152,7 +152,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7499686222496228661}
   - component: {fileID: 9019287510764892813}
-  - component: {fileID: 8167364656741069507}
   - component: {fileID: 4281266326006134655}
   m_Layer: 6
   m_Name: EnemyBase
@@ -200,19 +199,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8167364656741069507
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8487652099797056673}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f5833f5ff3963145ac4fb4ebc17a483, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemySO: {fileID: 0}
 --- !u!54 &4281266326006134655
 Rigidbody:
   m_ObjectHideFlags: 0
