@@ -11,6 +11,7 @@ public class BlowerUpgradeManager : MonoBehaviour
 
     [SerializeField]
     private Transform blowerSpawnerSpawnpoint;
+
     [SerializeField]
     private float blowerSpawnerSpawnOffset;
 
@@ -19,11 +20,11 @@ public class BlowerUpgradeManager : MonoBehaviour
 
     private void Awake()
     {
-        if(_instance == null)
+        if (_instance == null)
         {
             _instance = this;
             DontDestroyOnLoad(gameObject);
-        } 
+        }
         else
         {
             Destroy(gameObject);
@@ -34,10 +35,14 @@ public class BlowerUpgradeManager : MonoBehaviour
 
     private void SpawnBubbleSpawner()
     {
-        var spawnerSpawnOffsetX = Random.Range(-blowerSpawnerSpawnOffset,blowerSpawnerSpawnOffset);
+        var spawnerSpawnOffsetX = Random.Range(-blowerSpawnerSpawnOffset, blowerSpawnerSpawnOffset);
         var spawnerSpawnOffsetZ = Random.Range(-blowerSpawnerSpawnOffset, blowerSpawnerSpawnOffset);
 
-        var spawnPoint = new Vector3(blowerSpawnerSpawnpoint.position.x + spawnerSpawnOffsetX, blowerSpawnerSpawnpoint.position.y, blowerSpawnerSpawnpoint.position.z + spawnerSpawnOffsetZ);
+        var spawnPoint = new Vector3(
+            blowerSpawnerSpawnpoint.position.x + spawnerSpawnOffsetX,
+            blowerSpawnerSpawnpoint.position.y,
+            blowerSpawnerSpawnpoint.position.z + spawnerSpawnOffsetZ
+        );
 
         Instantiate(blowerSpawnerPrefab, spawnPoint, Quaternion.identity);
     }

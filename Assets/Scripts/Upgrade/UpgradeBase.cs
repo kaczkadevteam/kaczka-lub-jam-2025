@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public abstract class UpgradeBase : MonoBehaviour
@@ -14,13 +15,32 @@ public abstract class UpgradeBase : MonoBehaviour
     [SerializeField]
     private int level = 0;
 
-    public void IncrementLevel()
+    [SerializeField]
+    private int maxLevel = 10;
+
+    public virtual void IncrementLevel()
     {
-        level++;
+        if (CanUpgrade())
+            level++;
     }
 
     public float GetUpgradeValue()
     {
         return baseUpgradeValue * level;
+    }
+
+    public int GetLevel()
+    {
+        return level;
+    }
+
+    public bool CanUpgrade()
+    {
+        return level <= maxLevel;
+    }
+
+    public void SetMaxLevel(int maxLevel)
+    {
+        this.maxLevel = maxLevel;
     }
 }
