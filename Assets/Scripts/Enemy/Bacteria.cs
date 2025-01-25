@@ -11,8 +11,10 @@ public class Bacteria : EnemyBase
         while (true)
         {
             yield return new WaitForSeconds(13f);
-            Vector3 randomSpawnPointNearby = GetRandomSpawnPointNearby();
-            EnemySpawnerManager.Instance.SpawnEnemy(rootObject.transform.position + randomSpawnPointNearby, enemySO);
+            if(transform.parent == EnemySpawnerManager.Instance.enemiesParent.transform) {
+                Vector3 randomSpawnPointNearby = GetRandomSpawnPointNearby();
+                EnemySpawnerManager.Instance.SpawnEnemy(rootObject.transform.position + randomSpawnPointNearby, enemySO);
+            }
         }
     }
     
