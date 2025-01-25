@@ -3,11 +3,11 @@ using UnityEngine;
 
 public class EnemyBase : MonoBehaviour
 {
-	[SerializeField] private EnemySO enemySO;
+	[SerializeField] public EnemySO enemySO;
 	private float currentHealth;
     private Transform playerLocation;
     
-    void Start()
+	public void Start()
 	{
 		currentHealth = enemySO.health;
 		playerLocation = GameObject.Find("Player").transform;

@@ -22,49 +22,50 @@ public class EnemySpawnerManager : MonoBehaviour
     }
     public List<EnemyTuple> enemyList;
     public GameObject enemiesParent;
+    public static EnemySpawnerManager Instance { get; private set; }
     
-    private void SpawnEnemy()
+    public void SpawnEnemy(Vector3 spawnPoint, EnemySO enemySO = null)
     {
+        EnemySO selectedEnemy = enemySO;
         if (enemySOList == null || enemySOList.Count == 0) return;
-        
-        float totalWeight = 0f;
-        foreach (EnemySO enemySO in enemySOList)
-        {
-            totalWeight += enemySO.spawnWeight;
-        }
-        
-        float randomValue = Random.Range(0f, totalWeight);
-        
-        EnemySO selectedEnemy = null;
-        
-        foreach (EnemySO enemySO in enemySOList)
-        {
-            randomValue -= enemySO.spawnWeight;
-            if (randomValue <= 0f)
-            {
-                selectedEnemy = enemySO;
-                break;
-            }
-        }
-        
         if (selectedEnemy == null)
         {
-            selectedEnemy = enemySOList[0];
+            float totalWeight = 0f;
+            foreach (EnemySO enemySOelement in enemySOList)
+            {
+                totalWeight += enemySOelement.spawnWeight;
+            }
+
+            float randomValue = Random.Range(0f, totalWeight);
+
+            
+
+            foreach (EnemySO enemySOelement in enemySOList)
+            {
+                randomValue -= enemySOelement.spawnWeight;
+                if (randomValue <= 0f)
+                {
+                    selectedEnemy = enemySOelement;
+                    break;
+                }
+            }
+
+            if (selectedEnemy == null)
+            {
+                selectedEnemy = enemySOList[0];
+            }
         }
-        
-        
+
+
         var enemyTuple = enemyList.Find(x => x.enemySO == selectedEnemy);
-        Vector3 randomSpawnPoint = GetRandomSpawnPoint();
+        
         GameObject gameObject = ReuseEnemy(enemyTuple?.enemyList);
         if(gameObject != null)
         {
-            gameObject.transform.position = randomSpawnPoint;
-            gameObject.transform.rotation = Quaternion.identity;
-            gameObject.SetActive(true);
-            return;
+            SetupEnemy(spawnPoint, gameObject);
         }
         
-        GameObject enemyGo =  Instantiate(selectedEnemy.enemyPrefab, randomSpawnPoint, Quaternion.identity);
+        GameObject enemyGo =  Instantiate(selectedEnemy.enemyPrefab, spawnPoint, Quaternion.identity);
         if(enemyTuple == null)
         {
             enemyList.Add(new EnemyTuple {enemySO = selectedEnemy, enemyList = new List<GameObject> {enemyGo}});
@@ -94,9 +95,20 @@ public class EnemySpawnerManager : MonoBehaviour
 
     private void Start()
     {
-        SpawnEnemy();
         StartCoroutine(SpawnEnemyCoroutine());
         StartCoroutine(ScaleEnemySpawnRate());
+    }
+
+    private void Awake()
+    {
+        if (Instance == null && Instance != this)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     private IEnumerator ScaleEnemySpawnRate()
@@ -110,7 +122,8 @@ public class EnemySpawnerManager : MonoBehaviour
 
     private IEnumerator SpawnEnemyCoroutine()
     {
-        SpawnEnemy();
+        Vector3 randomSpawnPoint = GetRandomSpawnPoint();
+        SpawnEnemy(randomSpawnPoint);
         yield return new WaitForSeconds(1f/spawnRate);
         StartCoroutine(SpawnEnemyCoroutine());
     }
@@ -126,5 +139,12 @@ public class EnemySpawnerManager : MonoBehaviour
         }
 
         return null;
+    }
+
+    private void SetupEnemy(Vector3 spawnPoint, GameObject gameObject)
+    {
+        gameObject.transform.position = spawnPoint;
+        gameObject.transform.rotation = Quaternion.identity;
+        gameObject.SetActive(true);
     }
 }
