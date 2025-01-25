@@ -8,9 +8,15 @@ The Bubble Spawner is an entity placed in the centre of the arena that is respon
 User doesn't necessarily interact with the spawner itself, but he might find loot in form of valuable upgrades upon defeating enemies.
 
 #### Upgrades
+##### Spawner
 - Spawn rate
 - Number of spawners
-- Efficiency (essentially damage)
+
+##### Bubble
+- movement speed
+- dissipation range
+- size
+
 
 ### The Air Blower
 The blower is used to blow the bubbles and direct them towards the enemies. It is always facing the bubble spawner and user may interact with it to rotate it. 
