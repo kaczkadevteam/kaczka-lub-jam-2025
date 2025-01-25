@@ -19,5 +19,7 @@ public class GlobalConfig : MonoBehaviour
     }
 
     public float blowerOrbitingRadius = 10f;
+    [Header ("Stuff relative to blower orbiting radius")]
     public float bubbleSpawnOffsetFraction = 0.4f;
+    public float volcanoSizeFraction = 1f;
 }

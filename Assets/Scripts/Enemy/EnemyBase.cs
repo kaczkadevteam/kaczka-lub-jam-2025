@@ -36,6 +36,10 @@ public class EnemyBase : MonoBehaviour
 			SelfDestruct();
 			//todo: create event for player that will decrease player health
 		}
+
+		if (collision.gameObject.tag == "Bubble") {
+			SelfDestruct();
+		}
 	}
 	
 	public void SelfDestruct()
