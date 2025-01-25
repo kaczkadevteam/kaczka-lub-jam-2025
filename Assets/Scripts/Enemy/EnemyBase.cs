@@ -4,7 +4,7 @@ using UnityEngine;
 public class EnemyBase : MonoBehaviour
 {
 	[SerializeField] private EnemySO enemySO;
-	private int currentHealth;
+	private float currentHealth;
     private Transform playerLocation;
     
     void Start()
@@ -17,33 +17,35 @@ public class EnemyBase : MonoBehaviour
 	{
 		EnemyMove();
 	}
+	
+	public void SetPlayerLocation(Transform playerLocation)
+	{
+		this.playerLocation = playerLocation;
+	}
 
 	public void EnemyMove()
 	{
 		if(!playerLocation) return;
-		transform.position = Vector3.MoveTowards(transform.position, playerLocation.position, 10f * Time.deltaTime);
+		transform.position = Vector3.MoveTowards(transform.position, playerLocation.position, enemySO.moveSpeed * Time.deltaTime);
 	}
 	
 	public void OnCollisionEnter(Collision collision)
 	{
 		if(collision.gameObject.tag == "Player")
 		{
-			TakeDamage(1);
+			SelfDestruct();
+			//todo: create event for player that will decrease player health
 		}
 	}
 	
-	public void TakeDamage(int damage)
+	public void SelfDestruct()
 	{
-		currentHealth -= damage;
-		if (currentHealth <= 0)
-		{
-			//todo: chance for droping upgrade for player to pick up
-			Destroy(gameObject);
-		}
+		//todo: chance for droping upgrade for player to pick up
+		Destroy(gameObject);
 	}
 	
 	//todo
-	public void DropUpgrade()
+	private void DropUpgrade()
 	{
 	}
 }

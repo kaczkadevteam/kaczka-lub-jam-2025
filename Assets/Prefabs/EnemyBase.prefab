@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 578915984437959417}
   - component: {fileID: 7057892630712021441}
   - component: {fileID: 4747534909584233615}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,7 +119,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1201200497105507102}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EnemyVisuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,7 +154,7 @@ GameObject:
   - component: {fileID: 9019287510764892813}
   - component: {fileID: 8167364656741069507}
   - component: {fileID: 4281266326006134655}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EnemyBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}

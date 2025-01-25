@@ -8,6 +8,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2760057180770311520, guid: 20e1d63ebce6c5e4facea6b46a92978d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4338247779901333105, guid: 20e1d63ebce6c5e4facea6b46a92978d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7499686222496228661, guid: 20e1d63ebce6c5e4facea6b46a92978d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -55,6 +63,10 @@ PrefabInstance:
     - target: {fileID: 8487652099797056673, guid: 20e1d63ebce6c5e4facea6b46a92978d, type: 3}
       propertyPath: m_Name
       value: Bacteria
+      objectReference: {fileID: 0}
+    - target: {fileID: 8487652099797056673, guid: 20e1d63ebce6c5e4facea6b46a92978d, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
