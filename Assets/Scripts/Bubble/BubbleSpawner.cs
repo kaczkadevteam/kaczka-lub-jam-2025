@@ -61,7 +61,7 @@ public class BubbleSpawner : MonoBehaviour
             transform.position.z + bubbleSpawnOffsetZ
         );
 
-        Instantiate(bubblePrefab, spawnPoint, Quaternion.identity, bubbleParent);
         bubblePrefab.GetComponent<Bubble>().blower = blower;
+        Instantiate(bubblePrefab, spawnPoint, Quaternion.identity, bubbleParent);
     }
 }
