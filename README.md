@@ -1,4 +1,4 @@
-# Bubble Blower
+# The Art of Blow
 
 ## Core Gameplay Mechanics
 
@@ -13,10 +13,9 @@ User doesn't necessarily interact with the spawner itself, but he might find loo
 - Number of spawners
 
 ##### Bubble
-- movement speed
-- dissipation range
-- size
-
+- Movement speed
+- Dissipation range
+- Size
 
 ### The Air Blower
 The blower is used to blow the bubbles and direct them towards the enemies. It is always facing the bubble spawner and user may interact with it to rotate it. 
