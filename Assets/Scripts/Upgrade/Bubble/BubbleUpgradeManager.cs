@@ -10,6 +10,8 @@ public class BubbleUpgradeManager : MonoBehaviour
 
     public BubbleSizeUpgrade bubbleSizeUpgrade;
 
+    public BubbleLifetimeUpgrade bubbleLifetimeUpgrade;
+
     private void Awake()
     {
         if (_instance == null)

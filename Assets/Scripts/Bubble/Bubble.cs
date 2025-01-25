@@ -18,7 +18,9 @@ public class Bubble : MonoBehaviour
     private float speedFractionBelowWhichToDisappear;
 
     [SerializeField]
+    private float baseSpeedLossMultiplier;
     private float speedLossMultiplier;
+    private const float minSpeedLoss = 0.01f;
 
     void InitBubbleUpgrades()
     {
@@ -26,6 +28,7 @@ public class Bubble : MonoBehaviour
 
         InitBubbleSpeedUpgrade(bubbleUpgradeManager);
         InitBubbleSizeUpgrade(bubbleUpgradeManager);
+        InitBubbleLifetimeUpgrade(bubbleUpgradeManager);
     }
 
     void InitBubbleSpeedUpgrade(BubbleUpgradeManager bubbleUpgradeManager)
@@ -51,6 +54,21 @@ public class Bubble : MonoBehaviour
         );
     }
 
+    void InitBubbleLifetimeUpgrade(BubbleUpgradeManager bubbleUpgradeManager)
+    {
+        speedLossMultiplier = baseSpeedLossMultiplier;
+
+        var bubbleLifetimeUpgrade = bubbleUpgradeManager.bubbleLifetimeUpgrade;
+        var bubbleLifetimeUpgradeModifierValue = bubbleLifetimeUpgrade.GetUpgradeValue();
+
+        // Increase the lifetime of the bubble by decreasing the speed loss multiplier
+
+        if (speedLossMultiplier - bubbleLifetimeUpgradeModifierValue > minSpeedLoss)
+        {
+            speedLossMultiplier -= bubbleLifetimeUpgradeModifierValue;
+        }
+    }
+
     void Start()
     {
         InitBubbleUpgrades();
@@ -63,6 +81,7 @@ public class Bubble : MonoBehaviour
     {
         transform.position += currentSpeed * Time.deltaTime * movementDirection;
         currentSpeed -= speedLossMultiplier * maxSpeed * Time.deltaTime;
+
         if (currentSpeed <= speedFractionBelowWhichToDisappear * maxSpeed)
         {
             Destroy(gameObject);
