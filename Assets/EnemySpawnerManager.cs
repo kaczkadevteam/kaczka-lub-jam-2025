@@ -21,6 +21,7 @@ public class EnemySpawnerManager : MonoBehaviour
         public List<GameObject> enemyList;
     }
     public List<EnemyTuple> enemyList;
+    public GameObject enemiesParent;
     
     private void SpawnEnemy()
     {
@@ -60,6 +61,7 @@ public class EnemySpawnerManager : MonoBehaviour
         if(gameObject != null)
         {
             gameObject.transform.position = randomSpawnPoint;
+            gameObject.transform.rotation = Quaternion.identity;
             gameObject.SetActive(true);
             return;
         }
@@ -69,6 +71,7 @@ public class EnemySpawnerManager : MonoBehaviour
         {
             enemyList.Add(new EnemyTuple {enemySO = selectedEnemy, enemyList = new List<GameObject> {enemyGo}});
         }
+        enemyGo.transform.SetParent(enemiesParent.transform);
         
         EnemyBase enemyBase = enemyGo.GetComponent<EnemyBase>();
         
@@ -110,7 +113,6 @@ public class EnemySpawnerManager : MonoBehaviour
         {
             if (!enemy.activeInHierarchy)
             {
-                Debug.Log($"Reusing enemy {enemy.name}");
                 return enemy;
             }
         }

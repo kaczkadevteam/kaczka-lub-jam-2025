@@ -13,6 +13,11 @@ public class EnemyBase : MonoBehaviour
 		playerLocation = GameObject.Find("Player").transform;
 	}
 
+	private void OnEnable()
+	{
+		transform.rotation = Quaternion.identity;
+	}
+
 	void Update()
 	{
 		EnemyMove();
