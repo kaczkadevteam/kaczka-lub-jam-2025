@@ -4,8 +4,8 @@ public class VolcanoSizeSetter : MonoBehaviour
 {
     void Start()
     {
-        float SOME_NUMBER = 6f;
-        float scale = GlobalConfig.Instance.volcanoSizeFraction * SOME_NUMBER;
-        transform.localScale = new Vector3(scale, 5f, scale);
+        float scaleX = transform.localScale.x * GlobalConfig.Instance.volcanoSizeFraction;
+        float scaleZ = transform.localScale.y * GlobalConfig.Instance.volcanoSizeFraction;
+        transform.localScale = new Vector3(scaleX, transform.localScale.y, scaleZ);
     }
 }

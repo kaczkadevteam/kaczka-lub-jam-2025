@@ -8,7 +8,6 @@ public class BlowerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        Debug.Log(Gamepad.current?.leftStick.ReadValue());
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) || Input.GetMouseButton(0) || Gamepad.current?.leftStick.ReadValue()[0] < 0)
         {
             transform.Rotate(0, blowerRotationSpeed, 0);
