@@ -24,8 +24,7 @@ The blower is used to blow the bubbles and direct them towards the enemies. It i
 - Reversing the direction
 
 #### Upgrades
-- Power
-- Range
+- Rotation speed
 
 ### Enemies
 The enemies are spawned on the edges of the arena and move slowly towards the bubble spawner. By default enemies have 1 hp and die instantly when they get in contact with a bubble.
