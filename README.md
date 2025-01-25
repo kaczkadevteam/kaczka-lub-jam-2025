@@ -47,11 +47,11 @@ The enemies are spawned on the edges of the arena and move slowly towards the bu
 
 #### Bacteria
 ##### Features
-- Moves slowly
+- Moves super slowly
 - Might replicate itself after some time
 
 #### Dirt
-- Moves super slowly
+- Moves slowly
 - When it reaches the center it slows down the spawn rate of bubbles
 
 ### Cleanness (HP)
