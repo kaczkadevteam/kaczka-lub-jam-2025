@@ -11,17 +11,19 @@ public class EnemyBase : MonoBehaviour
     public CapsuleCollider capsuleCollider;
     private float currentHealth;
     private Transform playerLocation;
+    
+	public void Start()
+	{
+		currentHealth = enemySO.health;
+		playerLocation = GameObject.Find("Player").transform;
+		InitStats(enemySO);
+	}
 
-    public void Start()
-    {
-        currentHealth = enemySO.health;
-        playerLocation = GameObject.Find("Player").transform;
-    }
-
-    private void OnEnable()
-    {
-        transform.rotation = Quaternion.identity;
-    }
+	private void OnEnable()
+	{
+		transform.rotation = Quaternion.identity;
+		InitStats(enemySO);
+	}
 
     void Update()
     {
