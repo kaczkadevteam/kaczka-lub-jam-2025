@@ -13,8 +13,6 @@ public class EnemySpawnerManager : MonoBehaviour
     
     private void SpawnEnemy()
     {
-        spawnRate += GlobalConfig.Instance.enemySpawnRateGrowth;
-
         if (enemySOList == null || enemySOList.Count == 0) return;
         
         float totalWeight = 0f;
@@ -64,6 +62,16 @@ public class EnemySpawnerManager : MonoBehaviour
     {
         SpawnEnemy();
         StartCoroutine(SpawnEnemyCoroutine());
+        StartCoroutine(ScaleEnemySpawnRate());
+    }
+
+    private IEnumerator ScaleEnemySpawnRate()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(1f);
+            spawnRate += GlobalConfig.Instance.enemySpawnRateGrowth;
+        }
     }
 
     private IEnumerator SpawnEnemyCoroutine()
