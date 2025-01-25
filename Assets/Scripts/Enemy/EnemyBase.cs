@@ -4,6 +4,7 @@ using UnityEngine;
 public class EnemyBase : MonoBehaviour
 {
 	[SerializeField] public EnemySO enemySO;
+    [SerializeField] public CapsuleCollider capsuleCollider;
 	private float currentHealth;
     private Transform playerLocation;
     
@@ -31,6 +32,7 @@ public class EnemyBase : MonoBehaviour
 	public void EnemyMove()
 	{
 		if(!playerLocation) return;
+		if(transform.parent != EnemySpawnerManager.Instance.enemiesParent.transform) return;
 		transform.position = Vector3.MoveTowards(transform.position, playerLocation.position, enemySO.moveSpeed * Time.deltaTime);
 	}
 	
@@ -42,11 +44,11 @@ public class EnemyBase : MonoBehaviour
 			GameManager.Instance.DecreaseHealth(enemySO);
 		}
 
-		if (collision.gameObject.tag == "Bubble") {
-			SelfDestruct();
+		if (collision.gameObject.TryGetComponent<Bubble>(out var bubble)) {
+			bubble.TryCaptureEnemy(this);
 		}
 	}
-	
+
 	public void SelfDestruct()
 	{
 		//todo: chance for droping upgrade for player to pick up

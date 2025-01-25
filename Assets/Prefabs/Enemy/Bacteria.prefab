@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1201200497105507102, guid: 20e1d63ebce6c5e4facea6b46a92978d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2760057180770311520, guid: 20e1d63ebce6c5e4facea6b46a92978d, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -76,6 +80,18 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 9019287510764892813, guid: 20e1d63ebce6c5e4facea6b46a92978d, type: 3}
+      propertyPath: m_Height
+      value: 999
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019287510764892813, guid: 20e1d63ebce6c5e4facea6b46a92978d, type: 3}
+      propertyPath: m_Radius
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019287510764892813, guid: 20e1d63ebce6c5e4facea6b46a92978d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8167364656741069507, guid: 20e1d63ebce6c5e4facea6b46a92978d, type: 3}
     m_RemovedGameObjects: []
@@ -85,6 +101,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: -7310446089387794555}
   m_SourcePrefab: {fileID: 100100000, guid: 20e1d63ebce6c5e4facea6b46a92978d, type: 3}
+--- !u!136 &6937384796646416647 stripped
+CapsuleCollider:
+  m_CorrespondingSourceObject: {fileID: 9019287510764892813, guid: 20e1d63ebce6c5e4facea6b46a92978d, type: 3}
+  m_PrefabInstance: {fileID: 2120202028957045642}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7540796121296957227 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8487652099797056673, guid: 20e1d63ebce6c5e4facea6b46a92978d, type: 3}
@@ -103,3 +124,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemySO: {fileID: 11400000, guid: 5a1ffc96be0ce6c41b9f659cbaed5ff7, type: 2}
+  capsuleCollider: {fileID: 6937384796646416647}
+  canMove: 1

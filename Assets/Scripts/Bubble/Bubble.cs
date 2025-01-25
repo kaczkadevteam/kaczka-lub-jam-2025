@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using Vector3 = UnityEngine.Vector3;
 
@@ -21,6 +22,10 @@ public class Bubble : MonoBehaviour
     private float baseSpeedLossMultiplier;
     private float speedLossMultiplier;
     private const float minSpeedLoss = 0.01f;
+    [SerializeField] private CapsuleCollider capsuleCollider;
+    [SerializeField] private GameObject bubbleVisualsBeforeCaught;
+    [SerializeField] private GameObject bubbleVisualsAfterCaught;
+    [SerializeField] private List<EnemyBase> enemiesCaught;
 
     void InitBubbleUpgrades()
     {
@@ -82,7 +87,26 @@ public class Bubble : MonoBehaviour
 
         if (currentSpeed <= speedFractionBelowWhichToDisappear * maxSpeed)
         {
+            foreach (var enemy in enemiesCaught)
+            {
+                enemy.transform.SetParent(EnemySpawnerManager.Instance.enemiesParent.transform);
+                enemy.SelfDestruct();
+            }
+            
             Destroy(gameObject);
         }
+    }
+    
+    public void TryCaptureEnemy(EnemyBase enemy)
+    {
+        if (enemiesCaught.Count > 0) return;
+        
+        enemiesCaught.Add(enemy);
+        bubbleVisualsBeforeCaught.SetActive(false);
+        bubbleVisualsAfterCaught.SetActive(true);
+        enemy.transform.SetParent(transform);
+        enemy.transform.localPosition = new Vector3(0, 0, 0);
+        enemy.capsuleCollider.enabled = false;
+        capsuleCollider.enabled = false;
     }
 }
