@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Bacteria
   enemyPrefab: {fileID: 7540796121296957227, guid: 34da479ab7fe1e842a4f80b34a409f95, type: 3}
-  moveSpeed: 5
+  moveSpeed: 1
   damageToPlayer: 1
   dropChance: 1
   health: 1

@@ -22,4 +22,6 @@ public class GlobalConfig : MonoBehaviour
     [Header ("Stuff relative to blower orbiting radius")]
     public float bubbleSpawnOffsetFraction = 0.4f;
     public float volcanoSizeFraction = 1f;
+    [Header ("Enemy spawning")]
+    public float enemySpawnRateGrowth = 0.05f;
 }

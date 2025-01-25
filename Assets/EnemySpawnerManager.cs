@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Collections;
 
 
 public class EnemySpawnerManager : MonoBehaviour
@@ -12,6 +13,8 @@ public class EnemySpawnerManager : MonoBehaviour
     
     private void SpawnEnemy()
     {
+        spawnRate += GlobalConfig.Instance.enemySpawnRateGrowth;
+
         if (enemySOList == null || enemySOList.Count == 0) return;
         
         float totalWeight = 0f;
@@ -52,15 +55,21 @@ public class EnemySpawnerManager : MonoBehaviour
 
     private Vector3 GetRandomSpawnPoint()
     {
-        
-        Vector3 randomPoint = Random.insideUnitSphere.normalized * spawnPointRadius;
-        randomPoint.y = 0;
+        Vector3 randomPoint = new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-1f, 1f)).normalized * spawnPointRadius;
         
         return randomPoint;
     }
-    
+
     private void Start()
     {
-        InvokeRepeating("SpawnEnemy", 0f, 1/spawnRate);
+        SpawnEnemy();
+        StartCoroutine(SpawnEnemyCoroutine());
+    }
+
+    private IEnumerator SpawnEnemyCoroutine()
+    {
+        SpawnEnemy();
+        yield return new WaitForSeconds(1f/spawnRate);
+        StartCoroutine(SpawnEnemyCoroutine());
     }
 }

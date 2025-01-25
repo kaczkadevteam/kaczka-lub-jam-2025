@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Virus
   enemyPrefab: {fileID: 5707286550498949613, guid: 8d68e2fb843e8bf498d7bf4c50ccbdb9, type: 3}
-  moveSpeed: 10
+  moveSpeed: 5
   damageToPlayer: 1
   dropChance: 1
   health: 1
