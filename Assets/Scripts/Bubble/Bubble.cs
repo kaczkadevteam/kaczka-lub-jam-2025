@@ -22,10 +22,18 @@ public class Bubble : MonoBehaviour
     private float baseSpeedLossMultiplier;
     private float speedLossMultiplier;
     private const float minSpeedLoss = 0.01f;
-    [SerializeField] private CapsuleCollider capsuleCollider;
-    [SerializeField] private GameObject bubbleVisualsBeforeCaught;
-    [SerializeField] private GameObject bubbleVisualsAfterCaught;
-    [SerializeField] private List<EnemyBase> enemiesCaught;
+
+    [SerializeField]
+    private CapsuleCollider capsuleCollider;
+
+    [SerializeField]
+    private GameObject bubbleVisualsBeforeCaught;
+
+    [SerializeField]
+    private GameObject bubbleVisualsAfterCaught;
+
+    [SerializeField]
+    private List<EnemyBase> enemiesCaught;
 
     void InitBubbleUpgrades()
     {
@@ -92,15 +100,16 @@ public class Bubble : MonoBehaviour
                 enemy.transform.SetParent(EnemySpawnerManager.Instance.enemiesParent.transform);
                 enemy.SelfDestruct();
             }
-            
+
             Destroy(gameObject);
         }
     }
-    
-    public void TryCaptureEnemy(EnemyBase enemy)
+
+    public bool TryCaptureEnemy(EnemyBase enemy)
     {
-        if (enemiesCaught.Count > 0) return;
-        
+        if (enemiesCaught.Count > 0)
+            return false;
+
         enemiesCaught.Add(enemy);
         bubbleVisualsBeforeCaught.SetActive(false);
         bubbleVisualsAfterCaught.SetActive(true);
@@ -108,5 +117,7 @@ public class Bubble : MonoBehaviour
         enemy.transform.localPosition = new Vector3(0, 0, 0);
         enemy.capsuleCollider.enabled = false;
         capsuleCollider.enabled = false;
+
+        return true;
     }
 }
