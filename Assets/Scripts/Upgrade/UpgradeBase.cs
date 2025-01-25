@@ -6,8 +6,7 @@ public abstract class UpgradeBase : MonoBehaviour
     [SerializeField]
     protected string upgradeName;
 
-    [SerializeField]
-    protected GameObject prefab;
+    public GameObject prefab;
 
     [SerializeField]
     protected float baseUpgradeValue;
@@ -17,6 +16,8 @@ public abstract class UpgradeBase : MonoBehaviour
 
     [SerializeField]
     private int maxLevel = 10;
+
+    public int rarityRating = 1;
 
     public virtual void IncrementLevel()
     {
@@ -34,9 +35,14 @@ public abstract class UpgradeBase : MonoBehaviour
         return level;
     }
 
+    public string GetUpgradeName()
+    {
+        return upgradeName;
+    }
+
     public bool CanUpgrade()
     {
-        return level <= maxLevel;
+        return level < maxLevel;
     }
 
     public void SetMaxLevel(int maxLevel)

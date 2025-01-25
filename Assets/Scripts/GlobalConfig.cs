@@ -35,4 +35,7 @@ public class GlobalConfig : MonoBehaviour
     [Header("BubbleSpawner settings")]
     public float minTimeSpawnInterval = 0.005f;
     public float baseTimeSpawnInterval = 0.5f;
+
+    [Header("Upgrade settings")]
+    public int upgradeDropChance = 10;
 }
