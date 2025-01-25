@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,7 +16,6 @@ public class GameManager : MonoBehaviour
         if(instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
         } 
         else
         {
@@ -25,6 +26,14 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         babyHealth = maxBabyHealth;
+    }
+
+    void FixedUpdate()
+    {
+        if (Input.GetKey(KeyCode.R) || Gamepad.current?.aButton.ReadValue() == 1 || Gamepad.current?.bButton.ReadValue() == 1)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
 
     [SerializeField]
@@ -62,13 +71,13 @@ public class GameManager : MonoBehaviour
         switch (enemyTypeThatDealtMostDamage)
         {
             case "Bacteria":
-                deathReasonText = "B¹belek umar³ na gruŸlicê";
+                deathReasonText = "Bï¿½belek umarï¿½ na gruï¿½licï¿½";
                 break;
             case "Dirt":
-                deathReasonText = "B¹belek umar³ na alergiê od syfu";
+                deathReasonText = "Bï¿½belek umarï¿½ na alergiï¿½ od syfu";
                 break;
             case "Virus":
-                deathReasonText = "B¹belek umar³ na covid";
+                deathReasonText = "Bï¿½belek umarï¿½ na covid";
                 break;
         }
 
