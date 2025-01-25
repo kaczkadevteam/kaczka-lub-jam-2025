@@ -29,7 +29,7 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         healthBar.maxValue = GameManager.Instance.MaxBabyHealth;
-        gameLostText.gameObject.SetActive(false);
+        gameLostText.transform.parent.gameObject.SetActive(false);
         UpdateMenuState();
         StartCoroutine(UIUpdate());
     }
@@ -50,7 +50,7 @@ public class UIManager : MonoBehaviour
             //death message
             if (GameManager.Instance.DeathReasonText != string.Empty)
             {
-                gameLostText.gameObject.SetActive(true);
+                gameLostText.transform.parent.gameObject.SetActive(true);
                 gameLostText.text = GameManager.Instance.DeathReasonText;
             }
 
