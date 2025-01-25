@@ -2,26 +2,24 @@ using UnityEngine;
 
 public class BubbleSpawner : MonoBehaviour
 {
-    public float spawnRate = .1f;
-    private float nextSpawn = 0.0f;
-    [SerializeField] private Transform baseSpawnPoint;
     [SerializeField] private Transform blower;
     [SerializeField] private Transform bubbleParent;
-    public GameObject bubble;
+    [SerializeField] private GameObject bubblePrefab;
 
     public int enemySpawnedCount = 0;
+    private float timeSinceLastSpawn = 0.0f;
 
     // Update is called once per frame
     void Update()
     {
         // Check if it is time to spawn a bubble
-        nextSpawn = Time.deltaTime + nextSpawn;
+        timeSinceLastSpawn = Time.deltaTime + timeSinceLastSpawn;
         
-        if (nextSpawn > spawnRate)
+        if (timeSinceLastSpawn > UpgradesManager.Instance.blowerUpgrades.SpawnRateInterval)
         {
             // Spawn a bubble and reset the timer
             SpawnBubble();
-            nextSpawn = 0;
+            timeSinceLastSpawn = 0;
             
         }
     }
@@ -31,10 +29,10 @@ public class BubbleSpawner : MonoBehaviour
         var bubbleSpawnOffsetX = Random.Range(-GlobalConfig.Instance.blowerOrbitingRadius * GlobalConfig.Instance.bubbleSpawnOffsetFraction, GlobalConfig.Instance.blowerOrbitingRadius * GlobalConfig.Instance.bubbleSpawnOffsetFraction);
         var bubbleSpawnOffsetZ = Random.Range(-GlobalConfig.Instance.blowerOrbitingRadius * GlobalConfig.Instance.bubbleSpawnOffsetFraction, GlobalConfig.Instance.blowerOrbitingRadius * GlobalConfig.Instance.bubbleSpawnOffsetFraction);
 
-        var spawnPoint = new Vector3(baseSpawnPoint.position.x  + bubbleSpawnOffsetX, baseSpawnPoint.position.y, baseSpawnPoint.position.z  + bubbleSpawnOffsetZ);
+        var spawnPoint = new Vector3(transform.position.x  + bubbleSpawnOffsetX, transform.position.y, transform.position.z  + bubbleSpawnOffsetZ);
 
-        Instantiate(bubble, spawnPoint, Quaternion.identity, bubbleParent);
-        bubble.GetComponent<Bubble>().blower = blower;
+        Instantiate(bubblePrefab, spawnPoint, Quaternion.identity, bubbleParent);
+        bubblePrefab.GetComponent<Bubble>().blower = blower;
 
         enemySpawnedCount++;
     }
