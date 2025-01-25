@@ -263,7 +263,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeName: Bubble size
   prefab: {fileID: 218198226191090993, guid: ba1f7a96716184e27bbd2d563a921a78, type: 3}
-  baseUpgradeValue: 1
+  baseUpgradeValue: 0.1
   level: 0
 --- !u!1 &330585543
 GameObject:
@@ -1086,6 +1086,8 @@ MonoBehaviour:
   playerLocation: {fileID: 409997940}
   spawnPointRadius: 35
   spawnRate: 2
+  enemyList: []
+  enemiesParent: {fileID: 0}
 --- !u!4 &1669669359
 Transform:
   m_ObjectHideFlags: 0
@@ -1203,7 +1205,7 @@ MonoBehaviour:
   upgradeName: 
   prefab: {fileID: 218198226191090993, guid: 5d2ee91621fc74376856b9733733caa8, type: 3}
   baseUpgradeValue: 0.25
-  level: 5
+  level: 0
 --- !u!1 &2024602035
 GameObject:
   m_ObjectHideFlags: 0
