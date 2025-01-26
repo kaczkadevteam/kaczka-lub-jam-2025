@@ -14,21 +14,21 @@ public class Virus : EnemyBase
         switch (mutation)
         {
             case 0:
-                enemySO.moveSpeed += 0.5f;
+                VirusEvolutionManager.Instance.moveSpeed += 0.5f;
                 break;
             case 1:
-                enemySO.damageToPlayer += 1;
+                VirusEvolutionManager.Instance.damageToPlayer += 1;
                 break;
             case 2:
-                enemySO.spawnWeight += 0.1f;
+                VirusEvolutionManager.Instance.spawnWeight += 0.1f;
                 break;
             case 3:
-                enemySO.size *= 0.95f;
+                VirusEvolutionManager.Instance.size *= 0.95f;
                 break;
             default:
                 break;
         }
-        InitStats(enemySO);
+        InitStats();
     }
     
     new void Start()
@@ -42,5 +42,29 @@ public class Virus : EnemyBase
         TryMutate();
     }
     
+    private void InitStats()
+    {
+        var scale = VirusEvolutionManager.Instance.size;
+        transform.localScale = new Vector3(scale, scale, scale);
+    }
+    
+    void FixedUpdate()
+    {
+        EnemyMove();
+    }
+    
+    private void EnemyMove()
+    {
+        if (!playerLocation)
+            return;
+        if (transform.parent != EnemySpawnerManager.Instance.enemiesParent.transform)
+            return;
+        var speed = VirusEvolutionManager.Instance.moveSpeed;
+        transform.position = Vector3.MoveTowards(
+            transform.position,
+            playerLocation.position,
+            speed * Time.deltaTime
+        );
+    }
     
 }

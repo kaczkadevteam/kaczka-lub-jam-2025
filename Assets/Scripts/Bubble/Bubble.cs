@@ -117,10 +117,10 @@ public class Bubble : MonoBehaviour
         bubbleVisualsBeforeCaught.SetActive(false);
         bubbleVisualsAfterCaught.SetActive(true);
         enemy.transform.SetParent(transform);
-        enemy.transform.localPosition = new Vector3(0, 0, 0);
         enemy.capsuleCollider.enabled = false;
         capsuleCollider.enabled = false;
         GameManager.Instance.SaveEnemyKillStatistic(enemy.enemySO);
+        enemy.transform.localPosition = new Vector3(0, 0, 0);
 
         return true;
     }
