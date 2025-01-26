@@ -15,7 +15,6 @@ public class EnemyBase : MonoBehaviour
 	{
 		playerLocation = GameObject.Find("Player").transform;
 		InitStats(enemySO);
-        Invoke("SelfDestruct", 20f);
 	}
 
 	private void OnEnable()
@@ -23,7 +22,6 @@ public class EnemyBase : MonoBehaviour
         playerLocation = GameObject.Find("Player").transform;
 		transform.rotation = Quaternion.identity;
 		InitStats(enemySO);
-        Invoke("SelfDestruct", 20f);
 	}
 
     void FixedUpdate()
