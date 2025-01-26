@@ -9,20 +9,21 @@ public class EnemyBase : MonoBehaviour
 
     [SerializeField]
     public CapsuleCollider capsuleCollider;
-    private float currentHealth;
-    private Transform playerLocation;
+    public Transform playerLocation;
     
 	public void Start()
 	{
-		currentHealth = enemySO.health;
 		playerLocation = GameObject.Find("Player").transform;
 		InitStats(enemySO);
+        Invoke("SelfDestruct", 20f);
 	}
 
 	private void OnEnable()
 	{
-		// transform.rotation = Quaternion.identity;
+        playerLocation = GameObject.Find("Player").transform;
+		transform.rotation = Quaternion.identity;
 		InitStats(enemySO);
+        Invoke("SelfDestruct", 20f);
 	}
 
     void FixedUpdate()
@@ -91,7 +92,6 @@ public class EnemyBase : MonoBehaviour
     public void InitStats(EnemySO enemySO)
     {
         this.enemySO = enemySO;
-        currentHealth = enemySO.health;
         transform.localScale = new Vector3(enemySO.size, enemySO.size, enemySO.size);
     }
 }
