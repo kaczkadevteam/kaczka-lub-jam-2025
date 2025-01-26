@@ -41,12 +41,17 @@ public class EnemyBase : MonoBehaviour
         if (!playerLocation)
             return;
         if (transform.parent != EnemySpawnerManager.Instance.enemiesParent.transform)
-            return;
-        transform.position = Vector3.MoveTowards(
-            transform.position,
-            playerLocation.position,
-            enemySO.moveSpeed * Time.deltaTime
-        );
+        {
+            transform.localPosition = new Vector3(0, 0, 0);
+        }
+        else
+        {
+            transform.position = Vector3.MoveTowards(
+                transform.position,
+                playerLocation.position,
+                enemySO.moveSpeed * Time.deltaTime
+            );
+        }
     }
 
     public void OnCollisionEnter(Collision collision)
