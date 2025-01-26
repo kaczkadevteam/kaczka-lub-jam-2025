@@ -37,5 +37,5 @@ public class GlobalConfig : MonoBehaviour
     public float baseTimeSpawnInterval = 0.5f;
 
     [Header("Upgrade settings")]
-    public int upgradeDropChance = 10;
+    public int upgradeDropChance = 0;
 }

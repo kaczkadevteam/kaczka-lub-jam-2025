@@ -17,6 +17,7 @@ public abstract class UpgradeBase : MonoBehaviour
     [SerializeField]
     private int maxLevel = 10;
 
+    [Header("The higher the number, the more common it is")]
     public int rarityRating = 1;
 
     public virtual void IncrementLevel()
