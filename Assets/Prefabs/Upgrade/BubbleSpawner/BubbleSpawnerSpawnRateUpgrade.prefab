@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 753926061128741808}
   - component: {fileID: 6981511499152967351}
   - component: {fileID: 4593818768933785839}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BubbleSpawnerSpawnRateUpgrade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
