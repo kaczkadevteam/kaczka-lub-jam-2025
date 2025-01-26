@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class BombelekKoncowkiAnimator : MonoBehaviour
 {
-    [SerializeField] private List<Animator> animatoryBombelka;
+    [SerializeField] private GameObject aliveBombelek;
+    [SerializeField] private GameObject deadBombelek;
 
     void Update()
     {
         if (GameManager.Instance.BabyHealth > 0) return;
 
-        foreach (var animatorBombelka in animatoryBombelka)
-        {
-            animatorBombelka.enabled = false;
-        }
+        aliveBombelek.SetActive(false);
+        deadBombelek.SetActive(true);
     }
 }
