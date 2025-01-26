@@ -20,6 +20,8 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI gameLostText;
     [SerializeField]
+    private TextMeshProUGUI extraDeathReasonText;
+    [SerializeField]
     private TextMeshProUGUI dirtCleanedText;
     [SerializeField]
     private TextMeshProUGUI virusCleanedText;
@@ -65,6 +67,7 @@ public class UIManager : MonoBehaviour
             {
                 gameLostText.transform.parent.gameObject.SetActive(true);
                 gameLostText.text = GameManager.Instance.DeathReasonText;
+                extraDeathReasonText.text = GameManager.Instance.ExtraDeathReasonText;
             }
 
             //upgrades
