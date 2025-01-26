@@ -91,10 +91,10 @@ public class GameManager : MonoBehaviour
         switch (enemyTypeThatDealtMostDamage)
         {
             case "Bacteria":
-                extraDeathReasonText = "DUE TO TUMBERCOLOSIS";
+                extraDeathReasonText = "DUE TO TUBERCOLOSIS";
                 break;
             case "Dirt":
-                extraDeathReasonText = "DUE TO CHOKING WITH DIRT";
+                extraDeathReasonText = "DUE TO CHOKING ON DIRT";
                 break;
             case "Virus":
                 extraDeathReasonText = "DUE TO COVID";

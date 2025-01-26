@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Linq;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
@@ -21,6 +22,8 @@ public class UIManager : MonoBehaviour
     private TextMeshProUGUI gameLostText;
     [SerializeField]
     private TextMeshProUGUI extraDeathReasonText;
+    [SerializeField]
+    private TextMeshProUGUI finalScore;
     [SerializeField]
     private TextMeshProUGUI dirtCleanedText;
     [SerializeField]
@@ -68,6 +71,7 @@ public class UIManager : MonoBehaviour
                 gameLostText.transform.parent.gameObject.SetActive(true);
                 gameLostText.text = GameManager.Instance.DeathReasonText;
                 extraDeathReasonText.text = GameManager.Instance.ExtraDeathReasonText;
+                finalScore.text = $"FINAL SCORE: {GameManager.Instance.enemyKillStatistics.Select(keyValue => keyValue.Value).Aggregate(0, (value, total) => total + value)}";
             }
 
             //upgrades
