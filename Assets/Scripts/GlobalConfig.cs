@@ -24,8 +24,10 @@ public class GlobalConfig : MonoBehaviour
     public float bubbleSpawnOffsetFraction = 0.4f;
     public float volcanoSizeFraction = 1f;
 
-    [Header("Enemy spawning")]
+    [Header("Enemy settings")]
     public float enemySpawnRateGrowth = 0.05f;
+    public int enemySoundChance = 25;
+    public float enemySoundCooldown = 10f;
 
     [Header("Lose time slow")]
     public float timeScaleValueToStopCoroutine = 0.001f;

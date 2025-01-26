@@ -12,23 +12,25 @@ public class EnemyBase : MonoBehaviour
     [SerializeField]
     public CapsuleCollider capsuleCollider;
     public Transform playerLocation;
-    [SerializeField] private List<AudioClip> sounds;
-    
-	public void Start()
-	{
-		playerLocation = GameObject.Find("Player").transform;
-		InitStats(enemySO);
-        Invoke("SelfDestruct", 20f);
-        StartCoroutine(PlaySound());
-	}
 
-	private void OnEnable()
-	{
+    [SerializeField]
+    private List<AudioClip> sounds;
+
+    public void Start()
+    {
         playerLocation = GameObject.Find("Player").transform;
-		transform.rotation = Quaternion.identity;
-		InitStats(enemySO);
+        InitStats(enemySO);
         Invoke("SelfDestruct", 20f);
-	}
+        StartCoroutine(LoopEnemySound());
+    }
+
+    private void OnEnable()
+    {
+        playerLocation = GameObject.Find("Player").transform;
+        transform.rotation = Quaternion.identity;
+        InitStats(enemySO);
+        Invoke("SelfDestruct", 20f);
+    }
 
     void FixedUpdate()
     {
@@ -68,6 +70,8 @@ public class EnemyBase : MonoBehaviour
             && collision.gameObject.tag == "Player"
         )
         {
+            // Play enemy sound when colliding with player
+            PlaySound();
             SelfDestruct();
             GameManager.Instance.DecreaseHealth(enemySO);
         }
@@ -80,7 +84,8 @@ public class EnemyBase : MonoBehaviour
 
     private void DropUpgrade()
     {
-        var shouldDropUpgrade = UnityEngine.Random.Range(0, 100) <= GlobalConfig.Instance.upgradeDropChance;
+        var shouldDropUpgrade =
+            UnityEngine.Random.Range(0, 100) <= GlobalConfig.Instance.upgradeDropChance;
 
         if (shouldDropUpgrade)
             UpgradeLootManager.Instance.DispatchUpgrade(transform.position);
@@ -91,14 +96,27 @@ public class EnemyBase : MonoBehaviour
         this.enemySO = enemySO;
         transform.localScale = new Vector3(enemySO.size, enemySO.size, enemySO.size);
     }
-    
-    private IEnumerator PlaySound()
+
+    // Play enemy sound with a chance and cooldown
+    private IEnumerator LoopEnemySound()
     {
+        float enemySoundChance = GlobalConfig.Instance.enemySoundChance;
+        float waitTime = GlobalConfig.Instance.enemySoundCooldown;
+        bool shouldPlaySound = UnityEngine.Random.Range(0, 100) <= enemySoundChance;
+
+        if (!shouldPlaySound)
+            yield break;
+
         while (true)
         {
-            var sound = sounds[UnityEngine.Random.Range(0, sounds.Count)];
-            SoundManager.Instance.PlaySound(sound, transform, 1f);
-            yield return new WaitForSeconds(5f);
+            PlaySound();
+            yield return new WaitForSeconds(waitTime);
         }
+    }
+
+    private void PlaySound()
+    {
+        var sound = sounds[UnityEngine.Random.Range(0, sounds.Count)];
+        SoundManager.Instance.PlaySound(sound, transform, 1f);
     }
 }
