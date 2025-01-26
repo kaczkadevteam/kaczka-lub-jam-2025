@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using Vector3 = UnityEngine.Vector3;
 
 public class Bubble : MonoBehaviour
 {
@@ -97,8 +96,12 @@ public class Bubble : MonoBehaviour
         {
             foreach (var enemy in enemiesCaught)
             {
-                enemy.transform.SetParent(EnemySpawnerManager.Instance.enemiesParent.transform);
-                enemy.SelfDestruct();
+                if (enemy != null)
+                {
+                    enemy.capsuleCollider.enabled = true;
+                    enemy.transform.SetParent(EnemySpawnerManager.Instance.enemiesParent.transform);
+                    enemy.SelfDestruct();
+                }
             }
 
             Destroy(gameObject);

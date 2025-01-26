@@ -21,11 +21,11 @@ public class EnemyBase : MonoBehaviour
 
 	private void OnEnable()
 	{
-		transform.rotation = Quaternion.identity;
+		// transform.rotation = Quaternion.identity;
 		InitStats(enemySO);
 	}
 
-    void Update()
+    void FixedUpdate()
     {
         EnemyMove();
     }

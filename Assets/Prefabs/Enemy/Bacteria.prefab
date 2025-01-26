@@ -94,6 +94,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8167364656741069507, guid: 20e1d63ebce6c5e4facea6b46a92978d, type: 3}
+    - {fileID: 4747534909584233615, guid: 20e1d63ebce6c5e4facea6b46a92978d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -125,4 +126,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemySO: {fileID: 11400000, guid: 5a1ffc96be0ce6c41b9f659cbaed5ff7, type: 2}
   capsuleCollider: {fileID: 6937384796646416647}
-  canMove: 1
