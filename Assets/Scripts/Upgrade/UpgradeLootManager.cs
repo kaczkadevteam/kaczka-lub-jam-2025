@@ -27,11 +27,13 @@ public class UpgradeLootManager : MonoBehaviour
     {
         var bubbleUpgrades = BubbleUpgradeManager.Instance.GetManagerUpgrades();
         var bubbleSpawnerUpgrades = BubbleSpawnerUpgradeManager.Instance.GetManagerUpgrades();
+        var blowerUpgrades = BlowerUpgradeManager.Instance.GetManagerUpgrades();
 
         var allUpgrades = new List<UpgradeBase>();
 
         allUpgrades.AddRange(bubbleUpgrades);
         allUpgrades.AddRange(bubbleSpawnerUpgrades);
+        allUpgrades.AddRange(blowerUpgrades);
 
         return allUpgrades;
     }
