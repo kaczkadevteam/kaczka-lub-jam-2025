@@ -50,12 +50,9 @@ public class EnemyBase : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
-        //
         if (collision.gameObject.TryGetComponent<Bubble>(out var bubble))
         {
             bool wasEnemyCaptured = bubble.TryCaptureEnemy(this);
-
-            Debug.Log($"wasEnemyCaptured: {wasEnemyCaptured}");
 
             if (wasEnemyCaptured)
                 DropUpgrade();
