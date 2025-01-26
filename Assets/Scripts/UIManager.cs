@@ -26,6 +26,19 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI bacteriaCleanedText;
 
+    [SerializeField]
+    private TextMeshProUGUI spawnerCountUpgradeText;
+    [SerializeField]
+    private TextMeshProUGUI spawnerSpawnrateUpgradeText;
+    [SerializeField]
+    private TextMeshProUGUI bubbleLifetimeUpgradeText;
+    [SerializeField]
+    private TextMeshProUGUI bubbleSpeedUpgradeText;
+    [SerializeField]
+    private TextMeshProUGUI bubbleSizeUpgradeText;
+    [SerializeField]
+    private TextMeshProUGUI blowerSpeedUpgradeText;
+
     private void Start()
     {
         healthBar.maxValue = GameManager.Instance.MaxBabyHealth;
@@ -41,7 +54,7 @@ public class UIManager : MonoBehaviour
             //health
             healthBar.value = GameManager.Instance.BabyHealth;
 
-            //upgrades
+            //kill stats
             var enemyKillStatistics = GameManager.Instance.enemyKillStatistics;
             dirtCleanedText.text = $"{(enemyKillStatistics.TryGetValue("Dirt", out var dirtCount) ? dirtCount : 0)} Dirt";
             virusCleanedText.text = $"{(enemyKillStatistics.TryGetValue("Virus", out var virusCount) ? virusCount : 0)} Virus";
@@ -53,6 +66,14 @@ public class UIManager : MonoBehaviour
                 gameLostText.transform.parent.gameObject.SetActive(true);
                 gameLostText.text = GameManager.Instance.DeathReasonText;
             }
+
+            //upgrades
+            spawnerCountUpgradeText.text = $"Spawners lvl. {BubbleSpawnerUpgradeManager.Instance.bubbleSpawnerCountUpgrade.GetLevel()}";
+            spawnerSpawnrateUpgradeText.text = $"Spawnrate lvl. {BubbleSpawnerUpgradeManager.Instance.bubbleSpawnerSpawnSpeedUpgrade.GetLevel()}";
+            bubbleLifetimeUpgradeText.text = $"Lifetime lvl. {BubbleUpgradeManager.Instance.bubbleLifetimeUpgrade.GetLevel()}";
+            bubbleSizeUpgradeText.text = $"Size lvl. {BubbleUpgradeManager.Instance.bubbleSizeUpgrade.GetLevel()}";
+            bubbleSpeedUpgradeText.text = $"Speed lvl. {BubbleUpgradeManager.Instance.bubbleSpeedUpgrade.GetLevel()}";
+            //blowerSpeedUpgradeText.text = $"Rotation speed lvl. {BubbleUpgradeManager.Instance.bubbleSpeedUpgrade.GetLevel()}";
 
             yield return new WaitForSeconds(0.1f);
         }
