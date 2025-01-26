@@ -12,6 +12,7 @@ public class UpgradeVisuals : MonoBehaviour
     void FixedUpdate()
     {
         transform.position = new Vector3(transform.position.x, transform.position.y + 5f * Time.deltaTime, transform.position.z);
+        transform.localScale += Vector3.one * 0.3f * Time.deltaTime;
         if (transform.position.y > 10) {
             Destroy(gameObject);
         }
