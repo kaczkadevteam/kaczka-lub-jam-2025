@@ -4,16 +4,15 @@ using UnityEngine;
 
 public class BombelekKoncowkiAnimator : MonoBehaviour
 {
-    // [SerializeField] private List<GameObject> koncowkiBombelka;
-    // [SerializeField] private bool areKoncowkisGoingUp;
-    // [SerializeField] private float koncowkisZ;
+    [SerializeField] private List<Animator> animatoryBombelka;
 
-    // void Update()
-    // {
-    //     koncowkisZ += 0.1f;
-    //     foreach (var koncowka in koncowkiBombelka)
-    //     {
-    //         koncowka.transform.rotation = new Vector3(koncowka.transform.rotation.x, koncowka.transform.rotation.y, koncowkisZ);
-    //     }
-    // }
+    void Update()
+    {
+        if (GameManager.Instance.BabyHealth > 0) return;
+
+        foreach (var animatorBombelka in animatoryBombelka)
+        {
+            animatorBombelka.enabled = false;
+        }
+    }
 }

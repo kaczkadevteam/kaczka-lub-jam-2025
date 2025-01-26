@@ -49,6 +49,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97ac0e8fd242c504d8d777a390a4dcf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animatoryBombelka:
+  - {fileID: 3607571452020503001}
+  - {fileID: 3673396844362469687}
+  - {fileID: 885667561785929339}
+  - {fileID: 6270700680742371262}
 --- !u!1 &1930841799726808101
 GameObject:
   m_ObjectHideFlags: 0

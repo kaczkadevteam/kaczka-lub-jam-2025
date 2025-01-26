@@ -65,8 +65,12 @@ public class GameManager : MonoBehaviour
 
     public void DecreaseHealth(EnemySO enemyScriptable)
     {
+        if (babyHealth > 0) {
+            PlaySound();
+        }
+        
         babyHealth--;
-        PlaySound();
+
         if(!damageSourcesDictionary.TryAdd(enemyScriptable.enemyName, 1))
         {
             damageSourcesDictionary[enemyScriptable.enemyName]++;

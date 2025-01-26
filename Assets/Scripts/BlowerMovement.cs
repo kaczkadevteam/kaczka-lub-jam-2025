@@ -17,6 +17,8 @@ public class BlowerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (GameManager.Instance.BabyHealth <= 0) return;
+
         var blowerRotationSpeed = GetBlowerRotationSpeedUpgrade();
 
         if (

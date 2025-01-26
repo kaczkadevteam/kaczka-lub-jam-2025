@@ -42,6 +42,8 @@ public class BubbleSpawner : MonoBehaviour
 
     void SpawnBubble()
     {
+        if (GameManager.Instance.BabyHealth <= 0) return;
+
         var bubbleSpawnOffsetX = Random.Range(
             -GlobalConfig.Instance.blowerOrbitingRadius
                 * GlobalConfig.Instance.bubbleSpawnOffsetFraction,
