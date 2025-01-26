@@ -53,7 +53,7 @@ public class Virus : EnemyBase
         EnemyMove();
     }
     
-    private void EnemyMove()
+    new private void EnemyMove()
     {
         if (!playerLocation)
             return;

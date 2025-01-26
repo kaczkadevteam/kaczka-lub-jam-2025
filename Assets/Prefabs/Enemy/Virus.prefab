@@ -104,4 +104,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemySO: {fileID: 11400000, guid: 9d9863fdd431c7d4a93919713a02937d, type: 2}
   capsuleCollider: {fileID: 5175931510046914497}
+  playerLocation: {fileID: 0}
+  sounds:
+  - {fileID: 8300000, guid: c18858b7591f220418cf471132d2be3b, type: 3}
+  - {fileID: 8300000, guid: b92bdaa27a455b941aebc00a31fe7bfd, type: 3}
+  - {fileID: 8300000, guid: 1f173ba9b525a944f87cbc63dea0338f, type: 3}
+  - {fileID: 8300000, guid: f1426bed6730a3a4aae81d232dd2331f, type: 3}
+  - {fileID: 8300000, guid: f1bc3294d48f39a44b9c55c8c7e7bac3, type: 3}
+  - {fileID: 8300000, guid: 885e54485079cd442b44f4f12ecbff1e, type: 3}
+  - {fileID: 8300000, guid: 064d36f700f1bf4409ae24eabaf9ff17, type: 3}
   chanceToMutate: 0.1

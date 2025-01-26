@@ -252,3 +252,8 @@ MonoBehaviour:
   bubbleVisualsBeforeCaught: {fileID: 1921602527450755874}
   bubbleVisualsAfterCaught: {fileID: 5592233314552388542}
   enemiesCaught: []
+  sounds:
+  - {fileID: 8300000, guid: c55ecda0b85002c4488e892ed99fd7b7, type: 3}
+  - {fileID: 8300000, guid: 47887ac1372729349b9cf26ceb7e7f95, type: 3}
+  - {fileID: 8300000, guid: c5923c0fbe8191144b9580da94ec1292, type: 3}
+  - {fileID: 8300000, guid: 0eb42b215c3f02d40abf04592dd3468b, type: 3}
