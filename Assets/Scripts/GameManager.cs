@@ -79,18 +79,20 @@ public class GameManager : MonoBehaviour
     {
         var enemyTypeThatDealtMostDamage = damageSourcesDictionary.OrderByDescending(smth => smth.Value).First().Key;
 
-        switch (enemyTypeThatDealtMostDamage)
-        {
-            case "Bacteria":
-                deathReasonText = "B�belek umar� na gru�lic�";
-                break;
-            case "Dirt":
-                deathReasonText = "B�belek umar� na alergi� od syfu";
-                break;
-            case "Virus":
-                deathReasonText = "B�belek umar� na covid";
-                break;
-        }
+        deathReasonText = "BOMBELEK DIED";
+
+        //switch (enemyTypeThatDealtMostDamage)
+        //{
+        //    case "Bacteria":
+        //        deathReasonText = "B�belek umar� na gru�lic�";
+        //        break;
+        //    case "Dirt":
+        //        deathReasonText = "B�belek umar� na alergi� od syfu";
+        //        break;
+        //    case "Virus":
+        //        deathReasonText = "B�belek umar� na covid";
+        //        break;
+        //}
 
         StartCoroutine(SlowGameOnLose());
     }
