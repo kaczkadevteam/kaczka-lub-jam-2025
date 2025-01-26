@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     private static GameManager instance;
 
     public static GameManager Instance => instance;
+    [SerializeField] private List<AudioClip> babySounds;
     private void Awake()
     {
         if(instance == null)
@@ -62,7 +63,7 @@ public class GameManager : MonoBehaviour
     public void DecreaseHealth(EnemySO enemyScriptable)
     {
         babyHealth--;
-
+        PlaySound();
         if(!damageSourcesDictionary.TryAdd(enemyScriptable.enemyName, 1))
         {
             damageSourcesDictionary[enemyScriptable.enemyName]++;
@@ -103,5 +104,11 @@ public class GameManager : MonoBehaviour
         }
 
         Time.timeScale = 0;
+    }
+    
+    private void PlaySound()
+    {
+        var sound = babySounds[Random.Range(0, babySounds.Count)];
+        SoundManager.Instance.PlaySound(sound, transform, 1f);
     }
 }

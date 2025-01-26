@@ -130,3 +130,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemySO: {fileID: 11400000, guid: 5a1ffc96be0ce6c41b9f659cbaed5ff7, type: 2}
   capsuleCollider: {fileID: 6937384796646416647}
+  playerLocation: {fileID: 0}
+  sounds:
+  - {fileID: 8300000, guid: 9d6298c3976d09f409ad357dbcd2f412, type: 3}
+  - {fileID: 8300000, guid: 75c68c01e05128b4dbc532d6942fa0f3, type: 3}
+  - {fileID: 8300000, guid: 05efcff751c734d4da4148f3fea1ab58, type: 3}
+  - {fileID: 8300000, guid: b86803a1f4825fb4884e68fc43f66acf, type: 3}
+  - {fileID: 8300000, guid: 29da90ef956cdc64a98a41174a78c5cb, type: 3}
+  - {fileID: 8300000, guid: 38d529a0b80707a45a083e70e2c8671f, type: 3}

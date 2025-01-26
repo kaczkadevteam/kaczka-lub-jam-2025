@@ -112,6 +112,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemySO: {fileID: 11400000, guid: 527cf49f347a1f246a4c760bd28ec3fe, type: 2}
   capsuleCollider: {fileID: 6563714918951964614}
+  playerLocation: {fileID: 0}
+  sounds:
+  - {fileID: 8300000, guid: 2beb9ec9d8dedf54cbf21252dcafbacd, type: 3}
+  - {fileID: 8300000, guid: dc98fb6ed1e32ca448ecd1af8e0719be, type: 3}
+  - {fileID: 8300000, guid: ee7963af8b6b5d44b95a025d340d4aae, type: 3}
+  - {fileID: 8300000, guid: 374ba4c22fd7cee408c86982beeca420, type: 3}
+  - {fileID: 8300000, guid: 3cd03667e41650445b008f1b55d4914e, type: 3}
+  - {fileID: 8300000, guid: 716e19408187b9c47b28bd392c10b0e8, type: 3}
+  - {fileID: 8300000, guid: 41303e78856207b4c896363ce73a0916, type: 3}
 --- !u!136 &6563714918951964614 stripped
 CapsuleCollider:
   m_CorrespondingSourceObject: {fileID: 9019287510764892813, guid: 20e1d63ebce6c5e4facea6b46a92978d, type: 3}

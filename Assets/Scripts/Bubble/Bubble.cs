@@ -33,6 +33,8 @@ public class Bubble : MonoBehaviour
 
     [SerializeField]
     private List<EnemyBase> enemiesCaught;
+    
+    [SerializeField] private List<AudioClip> sounds;
 
     void InitBubbleUpgrades()
     {
@@ -117,11 +119,18 @@ public class Bubble : MonoBehaviour
         bubbleVisualsBeforeCaught.SetActive(false);
         bubbleVisualsAfterCaught.SetActive(true);
         enemy.transform.SetParent(transform);
+        enemy.transform.localPosition = new Vector3(0, 0, 0);
         enemy.capsuleCollider.enabled = false;
         capsuleCollider.enabled = false;
         GameManager.Instance.SaveEnemyKillStatistic(enemy.enemySO);
-        enemy.transform.localPosition = new Vector3(0, 0, 0);
-
+        PlaySound();
+        
         return true;
+    }
+
+    private void PlaySound()
+    {
+        var sound = sounds[Random.Range(0, sounds.Count)];
+        SoundManager.Instance.PlaySound(sound, transform, 1f);
     }
 }

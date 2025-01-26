@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -10,11 +12,14 @@ public class EnemyBase : MonoBehaviour
     [SerializeField]
     public CapsuleCollider capsuleCollider;
     public Transform playerLocation;
+    [SerializeField] private List<AudioClip> sounds;
     
 	public void Start()
 	{
 		playerLocation = GameObject.Find("Player").transform;
 		InitStats(enemySO);
+        Invoke("SelfDestruct", 20f);
+        StartCoroutine(PlaySound());
 	}
 
 	private void OnEnable()
@@ -22,6 +27,7 @@ public class EnemyBase : MonoBehaviour
         playerLocation = GameObject.Find("Player").transform;
 		transform.rotation = Quaternion.identity;
 		InitStats(enemySO);
+        Invoke("SelfDestruct", 20f);
 	}
 
     void FixedUpdate()
@@ -39,17 +45,12 @@ public class EnemyBase : MonoBehaviour
         if (!playerLocation)
             return;
         if (transform.parent != EnemySpawnerManager.Instance.enemiesParent.transform)
-        {
-            transform.localPosition = new Vector3(0, 0, 0);
-        }
-        else
-        {
-            transform.position = Vector3.MoveTowards(
-                transform.position,
-                playerLocation.position,
-                enemySO.moveSpeed * Time.deltaTime
-            );
-        }
+            return;
+        transform.position = Vector3.MoveTowards(
+            transform.position,
+            playerLocation.position,
+            enemySO.moveSpeed * Time.deltaTime
+        );
     }
 
     public void OnCollisionEnter(Collision collision)
@@ -89,5 +90,15 @@ public class EnemyBase : MonoBehaviour
     {
         this.enemySO = enemySO;
         transform.localScale = new Vector3(enemySO.size, enemySO.size, enemySO.size);
+    }
+    
+    private IEnumerator PlaySound()
+    {
+        while (true)
+        {
+            var sound = sounds[UnityEngine.Random.Range(0, sounds.Count)];
+            SoundManager.Instance.PlaySound(sound, transform, 1f);
+            yield return new WaitForSeconds(5f);
+        }
     }
 }
