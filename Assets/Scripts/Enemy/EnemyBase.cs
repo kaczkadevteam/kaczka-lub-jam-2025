@@ -70,16 +70,12 @@ public class EnemyBase : MonoBehaviour
 
     public void SelfDestruct()
     {
-        //todo: chance for droping upgrade for player to pick up
         gameObject.SetActive(false);
-        // Destroy(gameObject);
     }
 
     private void DropUpgrade()
     {
-        var f = UnityEngine.Random.Range(0, 100);
-
-        var shouldDropUpgrade = f <= GlobalConfig.Instance.upgradeDropChance;
+        var shouldDropUpgrade = UnityEngine.Random.Range(0, 100) <= GlobalConfig.Instance.upgradeDropChance;
 
         if (shouldDropUpgrade)
             UpgradeLootManager.Instance.DispatchUpgrade(transform.position);

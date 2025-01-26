@@ -46,8 +46,18 @@ public class GameManager : MonoBehaviour
 
     private readonly Dictionary<string, int> damageSourcesDictionary = new();
 
+    public readonly Dictionary<string, int> enemyKillStatistics = new();
+
     private string deathReasonText = string.Empty;
     public string DeathReasonText => deathReasonText;
+
+    public void SaveEnemyKillStatistic(EnemySO enemyScriptable)
+    {
+        if(!enemyKillStatistics.TryAdd(enemyScriptable.enemyName, 1))
+        {
+            enemyKillStatistics[enemyScriptable.enemyName]++;
+        }
+    }
 
     public void DecreaseHealth(EnemySO enemyScriptable)
     {
