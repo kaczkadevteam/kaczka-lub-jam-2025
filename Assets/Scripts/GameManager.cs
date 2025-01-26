@@ -52,6 +52,9 @@ public class GameManager : MonoBehaviour
     private string deathReasonText = string.Empty;
     public string DeathReasonText => deathReasonText;
 
+    private string extraDeathReasonText = string.Empty;
+    public string ExtraDeathReasonText => extraDeathReasonText;
+
     public void SaveEnemyKillStatistic(EnemySO enemyScriptable)
     {
         if(!enemyKillStatistics.TryAdd(enemyScriptable.enemyName, 1))
@@ -81,20 +84,20 @@ public class GameManager : MonoBehaviour
 
         deathReasonText = "BOMBELEK DIED";
 
-        //switch (enemyTypeThatDealtMostDamage)
-        //{
-        //    case "Bacteria":
-        //        deathReasonText = "B�belek umar� na gru�lic�";
-        //        break;
-        //    case "Dirt":
-        //        deathReasonText = "B�belek umar� na alergi� od syfu";
-        //        break;
-        //    case "Virus":
-        //        deathReasonText = "B�belek umar� na covid";
-        //        break;
-        //}
+        switch (enemyTypeThatDealtMostDamage)
+        {
+            case "Bacteria":
+                extraDeathReasonText = "DUE TO TUMBERCOLOSIS";
+                break;
+            case "Dirt":
+                extraDeathReasonText = "DUE TO CHOKING WITH DIRT";
+                break;
+            case "Virus":
+                extraDeathReasonText = "DUE TO COVID";
+                break;
+        }
     }
-    
+
     private void PlaySound()
     {
         var sound = babySounds[Random.Range(0, babySounds.Count)];
