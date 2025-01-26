@@ -93,19 +93,6 @@ public class GameManager : MonoBehaviour
         //        deathReasonText = "B�belek umar� na covid";
         //        break;
         //}
-
-        StartCoroutine(SlowGameOnLose());
-    }
-
-    private IEnumerator SlowGameOnLose()
-    {
-        while (Time.timeScale > GlobalConfig.Instance.timeScaleValueToStopCoroutine)
-        {
-            Time.timeScale /= 2;
-            yield return new WaitForSeconds(GlobalConfig.Instance.secondsBetweenTimeScaleDivision);
-        }
-
-        Time.timeScale = 0;
     }
     
     private void PlaySound()
