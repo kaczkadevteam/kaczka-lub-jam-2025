@@ -11,7 +11,6 @@ public class GlobalConfig : MonoBehaviour
         if (_instance == null)
         {
             _instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else if (_instance != this)
         {
@@ -36,4 +35,7 @@ public class GlobalConfig : MonoBehaviour
     [Header("BubbleSpawner settings")]
     public float minTimeSpawnInterval = 0.005f;
     public float baseTimeSpawnInterval = 0.5f;
+
+    [Header("Upgrade settings")]
+    public int upgradeDropChance = 10;
 }

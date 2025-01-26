@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using NUnit.Framework.Internal.Commands;
 using UnityEngine;
 
@@ -21,7 +22,6 @@ public class BubbleSpawnerUpgradeManager : MonoBehaviour
 
     public BubbleSpawnerCountUpgrade bubbleSpawnerCountUpgrade;
 
-
     public BubbleSpawnerSpawnRateUpgrade bubbleSpawnerSpawnSpeedUpgrade;
 
     private void Awake()
@@ -29,7 +29,6 @@ public class BubbleSpawnerUpgradeManager : MonoBehaviour
         if (_instance == null)
         {
             _instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -37,6 +36,11 @@ public class BubbleSpawnerUpgradeManager : MonoBehaviour
         }
 
         bubbleSpawnerCountUpgrade.onBubbleSpawnerCountIncrement.Add(SpawnBubbleSpawner);
+    }
+
+    public List<UpgradeBase> GetManagerUpgrades()
+    {
+        return new List<UpgradeBase> { bubbleSpawnerCountUpgrade, bubbleSpawnerSpawnSpeedUpgrade };
     }
 
     private void SpawnBubbleSpawner()

@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using Vector3 = UnityEngine.Vector3;
 
 public class Bubble : MonoBehaviour
 {
@@ -22,10 +21,18 @@ public class Bubble : MonoBehaviour
     private float baseSpeedLossMultiplier;
     private float speedLossMultiplier;
     private const float minSpeedLoss = 0.01f;
-    [SerializeField] private CapsuleCollider capsuleCollider;
-    [SerializeField] private GameObject bubbleVisualsBeforeCaught;
-    [SerializeField] private GameObject bubbleVisualsAfterCaught;
-    [SerializeField] private List<EnemyBase> enemiesCaught;
+
+    [SerializeField]
+    private CapsuleCollider capsuleCollider;
+
+    [SerializeField]
+    private GameObject bubbleVisualsBeforeCaught;
+
+    [SerializeField]
+    private GameObject bubbleVisualsAfterCaught;
+
+    [SerializeField]
+    private List<EnemyBase> enemiesCaught;
 
     void InitBubbleUpgrades()
     {
@@ -89,18 +96,23 @@ public class Bubble : MonoBehaviour
         {
             foreach (var enemy in enemiesCaught)
             {
-                enemy.transform.SetParent(EnemySpawnerManager.Instance.enemiesParent.transform);
-                enemy.SelfDestruct();
+                if (enemy != null)
+                {
+                    enemy.capsuleCollider.enabled = true;
+                    enemy.transform.SetParent(EnemySpawnerManager.Instance.enemiesParent.transform);
+                    enemy.SelfDestruct();
+                }
             }
-            
+
             Destroy(gameObject);
         }
     }
-    
-    public void TryCaptureEnemy(EnemyBase enemy)
+
+    public bool TryCaptureEnemy(EnemyBase enemy)
     {
-        if (enemiesCaught.Count > 0) return;
-        
+        if (enemiesCaught.Count > 0)
+            return false;
+
         enemiesCaught.Add(enemy);
         bubbleVisualsBeforeCaught.SetActive(false);
         bubbleVisualsAfterCaught.SetActive(true);
@@ -109,6 +121,7 @@ public class Bubble : MonoBehaviour
         enemy.capsuleCollider.enabled = false;
         capsuleCollider.enabled = false;
         GameManager.Instance.SaveEnemyKillStatistic(enemy.enemySO);
-        
+
+        return true;
     }
 }

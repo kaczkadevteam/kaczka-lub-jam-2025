@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class BubbleUpgradeManager : MonoBehaviour
@@ -17,11 +18,20 @@ public class BubbleUpgradeManager : MonoBehaviour
         if (_instance == null)
         {
             _instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else
         {
             Destroy(gameObject);
         }
+    }
+
+    public List<UpgradeBase> GetManagerUpgrades()
+    {
+        return new List<UpgradeBase>
+        {
+            bubbleSpeedUpgrade,
+            bubbleSizeUpgrade,
+            bubbleLifetimeUpgrade,
+        };
     }
 }

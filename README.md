@@ -1,57 +1,52 @@
-# The Art of Blow
+# The Art of Blow  
 
-## Core Gameplay Mechanics
+*In a world where hygiene is key, one baby holds the soapy fate of us all...*  
 
-### The Bubble Spawner
-The Bubble Spawner is an entity placed in the centre of the arena that is responsible for spawning bubbles into the arena.
+## 🧼 The Lore  
+A *madka* (aka an overzealous Facebook mom) leaves her precious *bombelek* (baby) in a sandbox. The twist? This kiddo's chomped down on a bar of soap and now fends off germs with an endless supply of bubbles. Germs beware—Bombelek’s bubbly arsenal is here to save the day!  
 
-User doesn't necessarily interact with the spawner itself, but he might find loot in form of valuable upgrades upon defeating enemies.
+---
 
-#### Upgrades
-##### Spawner
-- Spawn rate
-- Number of spawners
+## 🎮 Core Gameplay  
 
-##### Bubble
-- Movement speed
-- Dissipation range
-- Size
+### **The Bubble Spawner**  
+Bombelek (our bubble-powered hero) is chilling in the middle of the arena, pumping out soap bubbles to battle dirt, viruses, and bacteria. Use the mutations dropped by the enemies to strengthen yourself!
 
-### The Air Blower
-The blower is used to blow the bubbles and direct them towards the enemies. It is always facing the bubble spawner and user may interact with it to rotate it. 
+#### 💎 Spawner Upgrades:  
+- Faster spawn rate  
+- Multiple spawners! (more bombeleks = more chaos)  
 
-#### Features
-- Reversing the direction
+#### 💎 Bubble Upgrades:  
+- Zoomy bubbles (speed boost)  
+- Lasting bubbles (longer lifespan)  
+- *Thicc* bubbles (larger size)  
 
-#### Upgrades
-- Rotation speed
+---
 
-### Enemies
-The enemies are spawned on the edges of the arena and move slowly towards the bubble spawner. By default enemies have 1 hp and die instantly when they get in contact with a bubble.
+### **The Air Blower**  
+Your weapon of choice! Aim and blow those bubbles at approaching enemies by rotating the blower (it always faces the spawner, so no 360 trick shots).  
 
-#### Features
-- Amount of enemies increases with time
-- Damage scaling with time
-- Defeating an enemy has a chance of dropping an upgrade
-- ? The more rarity the enemy has, the less often it spawns
-- ? Killing enemies gives you points
-- ? Different enemies drop different upgrades
+#### 💎 Blower Upgrade:  
+- Faster rotation speed for quick bubble tactics.  
 
+---
 
-#### Viruses
-#### Features
-- Moves fast
-- ? Might mutate spontaneously to increase its' speed, hp etc.
+### **The Enemies**  
+Enemies crawl into the arena from the edges, all with one goal: ruin Bombelek’s vibes. Smack ‘em with bubbles to score points and snag upgrades!  
 
-#### Bacteria
-##### Features
-- Moves super slowly
-- Might replicate itself after some time
+#### 💀 Enemy Types:  
+- **Viruses**: Fast, unpredictable, and prone to mutating (*bigger, faster, stronger vibes*).  
+- **Bacteria**: Slow but sneaky—they replicate if you don’t pop ‘em fast enough.  
+- **Dirt**: The basic baddies. No gimmicks, just chilling and being annoying.  
 
-#### Dirt
-- Moves slowly
-- When it reaches the center it slows down the spawn rate of bubbles
+---
 
-### Cleanness (HP)
-- Enemies reduce the amount of cleanness the player has, when it reaches 0 you die
+### **Cleanness (HP)**  
+Your hygiene score (aka health). The dirtier the arena gets, the closer you are to game over. Keep things squeaky clean, or it’s curtains for Bombelek!  
 
+---
+
+Now go forth, master the art of blowing, and show those germs who’s boss! 🫧
+
+## About
+This project was created as part of [LubJam 2025](https://globalgamejam.org/jam-sites/2025/lubjam-2025).
