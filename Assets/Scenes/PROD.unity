@@ -18010,7 +18010,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5049292968862375548, guid: 440d6fe71daef7e4aac7cf84e525b694, type: 3}
       propertyPath: upgradeDropChance
-      value: 15
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
