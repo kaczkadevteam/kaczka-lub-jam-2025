@@ -4951,7 +4951,7 @@ MonoBehaviour:
   baseUpgradeValue: 1
   level: 1
   maxLevel: 5
-  rarityRating: 1
+  rarityRating: 2
   maxBubbleSpawnerCount: 10
 --- !u!4 &366107516
 Transform:
