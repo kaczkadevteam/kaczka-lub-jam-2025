@@ -18169,7 +18169,7 @@ GameObject:
   - component: {fileID: 1377884807}
   - component: {fileID: 1377884806}
   m_Layer: 0
-  m_Name: Plane
+  m_Name: Kocyk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18235,7 +18235,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7ddad2c0f7e51e045bf4a6e31247b1d1, type: 2}
+  - {fileID: 2100000, guid: dd3a397a7e1acd644a01ac6bca71edd1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
