@@ -15,6 +15,8 @@ public class EnemyBase : MonoBehaviour
 
     [SerializeField]
     private List<AudioClip> sounds;
+    [SerializeField]
+    private Transform enemyVisuals;
 
     public void Start()
     {
@@ -35,6 +37,12 @@ public class EnemyBase : MonoBehaviour
     void FixedUpdate()
     {
         EnemyMove();
+        EnemyRotate();
+    }
+
+    public void EnemyRotate()
+    {
+        enemyVisuals.Rotate(enemySO.moveSpeed * 15f * Time.deltaTime, 0, 15f * Time.deltaTime);
     }
 
     public void SetPlayerLocation(Transform playerLocation)

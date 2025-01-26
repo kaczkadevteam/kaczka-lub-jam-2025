@@ -51,6 +51,7 @@ public class Virus : EnemyBase
     void FixedUpdate()
     {
         EnemyMove();
+        base.EnemyRotate();
     }
     
     new private void EnemyMove()
