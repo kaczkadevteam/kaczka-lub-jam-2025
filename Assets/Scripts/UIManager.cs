@@ -73,7 +73,7 @@ public class UIManager : MonoBehaviour
             bubbleLifetimeUpgradeText.text = $"Lifetime lvl. {BubbleUpgradeManager.Instance.bubbleLifetimeUpgrade.GetLevel()}";
             bubbleSizeUpgradeText.text = $"Size lvl. {BubbleUpgradeManager.Instance.bubbleSizeUpgrade.GetLevel()}";
             bubbleSpeedUpgradeText.text = $"Speed lvl. {BubbleUpgradeManager.Instance.bubbleSpeedUpgrade.GetLevel()}";
-            //blowerSpeedUpgradeText.text = $"Rotation speed lvl. {BubbleUpgradeManager.Instance.bubbleSpeedUpgrade.GetLevel()}";
+            blowerSpeedUpgradeText.text = $"Rotation speed lvl. {BlowerUpgradeManager.Instance.blowerRotationSpeedUpgrade.GetLevel()}";
 
             yield return new WaitForSeconds(0.1f);
         }
