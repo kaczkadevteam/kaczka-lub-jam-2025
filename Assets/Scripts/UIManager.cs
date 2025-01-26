@@ -9,6 +9,8 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     [SerializeField]
+    private GameObject splashArt;
+    [SerializeField]
     private bool menuOpen = false;
     [SerializeField]
     private GameObject menu;
@@ -56,6 +58,9 @@ public class UIManager : MonoBehaviour
     {
         while (true)
         {
+            //splash art
+            splashArt.SetActive(GameManager.Instance.IsStartGamePause);
+
             //health
             healthBar.value = GameManager.Instance.BabyHealth;
 

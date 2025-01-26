@@ -27,6 +27,16 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         babyHealth = maxBabyHealth;
+        Time.timeScale = 0;
+        StartCoroutine(DisplaySplashArt());
+    }
+
+    private IEnumerator DisplaySplashArt()
+    {
+        isStartGamePause = true;
+        yield return new WaitForSecondsRealtime(5f);
+        isStartGamePause = false;
+        Time.timeScale = 1f;
     }
 
     void FixedUpdate()
@@ -36,6 +46,9 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
+
+    private bool isStartGamePause = true;
+    public bool IsStartGamePause => isStartGamePause;
 
     [SerializeField]
     private int maxBabyHealth = 100;
